@@ -2,6 +2,9 @@
 import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
+import NodeJs from "./icons/NodeJs.astro"
+import ExpressJS from "./icons/ExpressJS.astro"
+import PostgreSQL from "./icons/PostgreSQL.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -16,24 +19,31 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  NODEJS: {
+    name: "NodeJS",
+    class: "bg-[#003159] text-white",
+    icon: NodeJs,
+  },
+  EXPRESSJS: {
+    name: "ExpressJS",
+    class: "bg-[#003159] text-white",
+    icon: ExpressJS,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#003159] text-white",
+    icon: PostgreSQL,
+  },
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "One Anime - Un sitio para ver tus series de anime favoritas",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
-  },
-  {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
-    description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Aplicacion web para ver series de anime, implementando frontend desde cero con Next.js y backend creado con NodeJS, Express y otras tecnologias, Haciendo uso de web scraping para proveer la base datos de PostgreSQL hospedada en Supabase, manejando y almacenando imagenes en cloudflare R2",
+    link: "https://n-anime-app.vercel.app/",
+    github: "https://github.com/JLex11/n-anime-app",
+    image: "/projects/one-anime.webp",
+    tags: [TAGS.NEXT, TAGS.NODEJS, TAGS.EXPRESSJS, TAGS.POSTGRESQL],
   },
 ]
 ---
