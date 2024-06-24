@@ -92,10 +92,12 @@ export const ui = {
     "hero.text3":
       "from Medellin, Colombia. Specialized in web application development.",
     "hero.contact": "Contact me",
+    "hero.linkedin": "LinkedIn",
     // section
     "section.experience.title": "Work Experience",
     "section.experience1.title": "PPC Indexer",
     "section.experience1.date": "July 2022 - June 2024",
+    "section.experience1.company": "Talent.com",
     "section.experience1.description":
       "Optimized data management for job-based offers, resulting in a significant improvement in the performance of the extraction scripts. Implemented advanced JavaScript and efficient PHP techniques, reducing the execution time of the code. This not only promoted best practices in development, resulting in a more clean and maintainable code, but also significantly reduced the costs of computation in the cloud.",
     "section.projects.title": "Projects",
