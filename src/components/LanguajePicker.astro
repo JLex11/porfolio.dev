@@ -1,7 +1,6 @@
 ---
 import { languages } from "../i18n/ui";
 import { useTranslatedPath } from "../i18n/utils";
-import Lang from "./icons/Lang.astro";
 
 const currentLocale = Astro.currentLocale as keyof typeof languages;
 const translatePath = useTranslatedPath(currentLocale);
