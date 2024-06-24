@@ -1,5 +1,12 @@
 ---
-const currentYear = new Date().getFullYear()
+import type { languages, ui } from "@/i18n/ui";
+import { useTranslatedPath, useTranslations } from "@/i18n/utils";
+
+const currentYear = new Date().getFullYear();
+
+const currentLocale = Astro.currentLocale as keyof typeof ui;
+const t = useTranslations(currentLocale);
+const translatePath = useTranslatedPath(currentLocale);
 ---
 
 <footer
@@ -10,17 +17,25 @@ const currentYear = new Date().getFullYear()
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
       >© {currentYear}
-      <a href="https://www.linkedin.com/in/john-alexander-calle/" class="hover:underline">Alexander</a>
+      <a
+        href="https://www.linkedin.com/in/john-alexander-calle/"
+        class="hover:underline">Alexander</a
+      >
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a
+          href={translatePath("/#sobre-mi", currentLocale)}
+          class="hover:underline me-4 md:me-6">{t("footer.about.title")}</a
+        >
       </li>
       <li>
-        <a id="contacto" href="mailto:alexcalle.paola@gmail.com" class="hover:underline"
-          >Contacto</a
+        <a
+          id="contacto"
+          href="mailto:alexcalle.paola@gmail.com"
+          class="hover:underline">{t("footer.contact.title")}</a
         >
       </li>
     </ul>

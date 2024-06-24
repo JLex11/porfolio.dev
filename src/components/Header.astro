@@ -1,28 +1,35 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro"
+import { useTranslatedPath, useTranslations } from "@/i18n/utils";
+import ThemeToggle from "./ThemeToggle.astro";
+import type { ui } from "@/i18n/ui";
+import LanguajePicker from "./LanguajePicker.astro";
+
+const currentLocale = Astro.currentLocale as keyof typeof ui;
+const t = useTranslations(currentLocale);
+const translatePath = useTranslatedPath(currentLocale);
 
 const navItems = [
   {
-    title: "Experiencia",
+    title: t("nav.experience"),
     label: "experiencia",
-    url: "/#experiencia",
+    url: translatePath("/#experiencia", currentLocale),
   },
   {
-    title: "Proyectos",
+    title: t("nav.projects"),
     label: "proyectos",
-    url: "/#proyectos",
+    url: translatePath("/#proyectos", currentLocale),
   },
   {
-    title: "Sobre mí",
+    title: t("nav.about"),
     label: "sobre-mi",
-    url: "/#sobre-mi",
+    url: translatePath("/#sobre-mi", currentLocale),
   },
   {
-    title: "Contacto",
+    title: t("nav.contact"),
     label: "contacto",
     url: "mailto:alexcalle.paola@gmail.com",
   },
-]
+];
 ---
 
 <header
@@ -43,49 +50,50 @@ const navItems = [
       ))
     }
     <ThemeToggle />
+    <LanguajePicker />
   </nav>
 </header>
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav a");
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500")
+              item.classList.add("text-yellow-500");
             } else {
-              item.classList.remove("text-yellow-500")
+              item.classList.remove("text-yellow-500");
             }
-          })
+          });
         }
-      })
-    }
+      });
+    };
 
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
       threshold: 0.3,
-    })
+    });
 
     sections.forEach((section) => {
-      observer.observe(section)
-    })
+      observer.observe(section);
+    });
 
     // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect()
+        observer.disconnect();
       } else {
         sections.forEach((section) => {
-          observer.observe(section)
-        })
+          observer.observe(section);
+        });
       }
-    }
-  })
+    };
+  });
 </script>
 
 <style>

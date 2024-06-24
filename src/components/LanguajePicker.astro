@@ -1,0 +1,28 @@
+---
+import { languages } from "../i18n/ui";
+import { useTranslatedPath } from "../i18n/utils";
+import Lang from "./icons/Lang.astro";
+
+const currentLocale = Astro.currentLocale as keyof typeof languages;
+const translatePath = useTranslatedPath(currentLocale);
+---
+
+<ul>
+  {
+    Object.entries(languages).map(([lang, label]) => {
+      if (lang === currentLocale) return;
+
+      return (
+        <li>
+          <a
+            href={translatePath("/", lang)}
+            title={label}
+            class="transition hover:text-blue-700 dark:hover:text-blue-700 px-2 py-2 relative"
+          >
+            {lang.toLocaleUpperCase()}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

@@ -9,14 +9,12 @@ import ProfileCheck from "@/components/icons/ProfileCheck.astro";
 import Projects from "@/components/Projects.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Hero from "@/components/Hero.astro";
-import { useTranslations } from "@/i18n/utils";
-import type { ui } from "@/i18n/ui";
-
-const currentLocale = Astro.currentLocale as keyof typeof ui;
-const t = useTranslations(currentLocale);
 ---
 
-<Layout title={t("seo.title")} description={t("seo.description")}>
+<Layout
+  title="Alexander's Portfolio - Web Developer and Programmer with 4 years of experience"
+  description="Hire Alexander to create your web application. Web Developer. Specialized in creating unique applications."
+>
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
       <Hero />
@@ -28,7 +26,7 @@ const t = useTranslations(currentLocale);
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
       >
         <Briefcase class="size-8" />
-        {t("section.experience.title")}
+        Work Experience
       </h2>
       <Experience />
     </SectionContainer>
@@ -38,7 +36,7 @@ const t = useTranslations(currentLocale);
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
       >
         <CodeIcon class="size-7" />
-        {t("section.projects.title")}
+        Projects
       </h2>
       <Projects />
     </SectionContainer>
@@ -48,7 +46,7 @@ const t = useTranslations(currentLocale);
         class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
       >
         <ProfileCheck class="size-8" />
-        {t("section.about.title")}
+        About me
       </h2>
       <AboutMe />
     </SectionContainer>
