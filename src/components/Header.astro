@@ -1,12 +1,12 @@
 ---
-import { useTranslatedPath, useTranslations } from "@/i18n/utils";
-import ThemeToggle from "./ThemeToggle.astro";
-import type { ui } from "@/i18n/ui";
-import LanguajePicker from "./LanguajePicker.astro";
+import { useTranslatedPath, useTranslations } from "@/i18n/utils"
+import ThemeToggle from "./ThemeToggle.astro"
+import type { ui } from "@/i18n/ui"
+import LanguajePicker from "./LanguajePicker.astro"
 
-const currentLocale = Astro.currentLocale as keyof typeof ui;
-const t = useTranslations(currentLocale);
-const translatePath = useTranslatedPath(currentLocale);
+const currentLocale = Astro.currentLocale as keyof typeof ui
+const t = useTranslations(currentLocale)
+const translatePath = useTranslatedPath(currentLocale)
 
 const navItems = [
   {
@@ -29,19 +29,18 @@ const navItems = [
     label: "contacto",
     url: "mailto:alexcalle.paola@gmail.com",
   },
-];
+]
 ---
 
-<header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
->
+<header>
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-2"
   >
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+          nav-item-link
+          class="relative px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 hidden md:block"
           aria-label={link.label}
           href={link.url}
         >
@@ -56,48 +55,53 @@ const navItems = [
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+    const sections = document.querySelectorAll(
+      "section"
+    ) as NodeListOf<HTMLElement>
+    const navItems = document.querySelectorAll(
+      "header nav a[nav-item-link]"
+    ) as NodeListOf<HTMLElement>
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500");
+              item.setAttribute("data-active", "true")
             } else {
-              item.classList.remove("text-yellow-500");
+              item.removeAttribute("data-active")
             }
-          });
+          })
         }
-      });
-    };
+      })
+    }
 
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
       threshold: 0.3,
-    });
+    })
 
     sections.forEach((section) => {
-      observer.observe(section);
-    });
+      observer.observe(section)
+    })
 
     // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect();
+        observer.disconnect()
       } else {
         sections.forEach((section) => {
-          observer.observe(section);
-        });
+          observer.observe(section)
+        })
       }
-    };
-  });
+    }
+  })
 </script>
 
-<style>
-  nav {
+<style is:global>
+  header nav {
+    --nav-bg: rgb(255 255 255 / 0.5);
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
@@ -105,7 +109,16 @@ const navItems = [
 
   @keyframes nav-shadown {
     to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+      background-color: var(--nav-bg);
     }
+  }
+
+  .dark header nav {
+    --nav-bg: rgb(31 41 55 / 0.9);
+  }
+
+  header nav a[nav-item-link][data-active="true"] {
+    @apply text-yellow-500 block;
   }
 </style>
