@@ -1,17 +1,17 @@
 ---
-import "@fontsource-variable/onest";
+import "@fontsource-variable/onest"
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions } from "astro:transitions"
+import Footer from "../components/Footer.astro"
+import Header from "../components/Header.astro"
 
 interface Props {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
-const { description, title } = Astro.props;
-const { currentLocale } = Astro;
+const { description, title } = Astro.props
+const { currentLocale } = Astro
 ---
 
 <!doctype html>
@@ -38,6 +38,10 @@ const { currentLocale } = Astro;
     <slot />
     <Footer />
     <style is:global>
+      /* * {
+        outline: 1px solid red;
+      } */
+
       :root {
         color-scheme: light dark;
       }
