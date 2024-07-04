@@ -1,0 +1,12 @@
+---
+import { twMerge } from "tailwind-merge"
+const { class: className } = Astro.props
+---
+
+<div
+  class:list={twMerge([
+    `size-[min(calc(100vw_-_1rem),30rem)] blur-[120px] bg-blue-700 rounded-full absolute opacity-90 -z-[1]`,
+    className,
+  ])}
+>
+</div>
