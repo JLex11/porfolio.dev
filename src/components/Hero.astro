@@ -1,21 +1,21 @@
 ---
-const personalImageAlt = "Alexander Calle";
-import Badge from "@/components/Badge.astro";
-import LinkedInIcon from "@/components/icons/LinkedIn.astro";
-import MailIcon from "@/components/icons/Mail.astro";
-import SocialPill from "@/components/SocialPill.astro";
-import type { ui } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
+const personalImageAlt = "Alexander Calle"
+import Badge from "@/components/Badge.astro"
+import LinkedInIcon from "@/components/icons/LinkedIn.astro"
+import MailIcon from "@/components/icons/Mail.astro"
+import SocialPill from "@/components/SocialPill.astro"
+import type { ui } from "@/i18n/ui"
+import { useTranslations } from "@/i18n/utils"
 
-const currentLocale = Astro.currentLocale as keyof typeof ui;
-const t = useTranslations(currentLocale);
+const currentLocale = Astro.currentLocale as keyof typeof ui
+const t = useTranslations(currentLocale)
 ---
 
 <div class="max-w-xl">
   <div class="flex gap-4 mb-4">
     <img
       class="rounded-full shadow-lg size-16"
-      src="/alexander.png"
+      src="/alexander.avif"
       alt={personalImageAlt}
     />
     <a
