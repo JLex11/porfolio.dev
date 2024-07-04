@@ -1,0 +1,43 @@
+---
+const REFERENCES = [
+  {
+    name: "Gabriela Acosta",
+    picture: "/references/mariag.webp",
+    relation: "Team manager",
+    company: {
+      name: "Talent.com",
+      link: "https://talent.com",
+    },
+    text: "Alexander es un programador con habilidades técnicas sólidas, un desempeño impecable y a nivel de resolución de problemas es excelente. además, alexander es una persona íntegra, con valores éticos y morales, responsable y amigable. sin duda alguna lo recomiendo para cualquier equipo de trabajo donde pueda ser valorado y respetado.",
+  },
+]
+---
+
+<ul>
+  {
+    REFERENCES.map(({ name, picture, relation, company, text }) => (
+      <li>
+        <article class="flex flex-col gap-2 border dark:border-gray-800 border-black/20 bg-black/5 p-4 rounded dark:bg-white/5 w-fit">
+          <header class="flex gap-2 items-start">
+            <img src={picture} alt={name} class="size-14 rounded-full" />
+            <div class="flex flex-col">
+              <h3 class="text-lg font-bold">{name}</h3>
+              <span class="text-base opacity-60">
+                {relation} at{" "}
+                <a
+                  href={company.link}
+                  rel="noreferrer"
+                  target="_blank"
+                  class="hover:underline font-bold text-blue-700"
+                >
+                  {company.name}
+                </a>
+              </span>
+            </div>
+          </header>
+          <p class="opacity-70 max-w-[40ch] text-balance">{text}</p>
+        </article>
+      </li>
+    ))
+  }
+</ul>
