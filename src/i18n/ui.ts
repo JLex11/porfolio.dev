@@ -1,11 +1,11 @@
 export const languages = {
   es: "Español",
   en: "English",
-};
+}
 
-export const defaultLang = "es";
+export const defaultLang = "es"
 
-export const showDefaultLang = false;
+export const showDefaultLang = false
 
 export const ui = {
   es: {
@@ -15,11 +15,13 @@ export const ui = {
     "nav.about": "Acerca de",
     "nav.contact": "Contacto",
     "nav.theme-toggle.label": "Elige el tema",
+
     // seo
     "seo.title":
       "Porfolio de Alexander - Desarrollador y Programador Web con 4 años de experiencia",
     "seo.description":
       "Contrata a Alexander para crear tu aplicación web. Desarrollador Web. Especializado en crear aplicaciones únicas.",
+
     // hero
     "hero.hiring.badge": "Disponible para trabajar",
     "hero.title": "Hey, soy Alexander",
@@ -29,6 +31,7 @@ export const ui = {
       "de Medellin, Colombia. Especializado en el desarrollo de aplicaciones web.",
     "hero.contact": "Contáctame",
     "hero.linkedin": "LinkedIn",
+
     // section
     "section.experience.title": "Experiencia laboral",
     "section.experience1.title": "Indexador PPC",
@@ -36,14 +39,20 @@ export const ui = {
     "section.experience1.company": "Talent.com",
     "section.experience1.description":
       "Optimicé la gestión de datos para ofertas de trabajo patrocinadas, logrando una mejora significativa en el rendimiento de los scripts de extracción. Implementé JavaScript avanzado y técnicas eficientes de PHP, reduciendo los tiempos de ejecución del código. Esto no solo promovió las mejores prácticas de desarrollo, resultando en un código más limpio y mantenible, sino que también disminuyó considerablemente los costos de computación en la nube.",
+
+    "section.references.title": "Referencias",
+
     "section.projects.title": "Proyectos",
-    "section.projects1.title":
-      "One Anime - Un sitio para ver tus series de anime favoritas",
+    "section.projects1.title": "One Anime",
     "section.projects1.description":
       "Aplicación web para ver series de anime, implementando frontend desde cero con Next.js y backend creado con NodeJS, Express y otras tecnologias, Haciendo uso de web scraping para proveer la base datos de PostgreSQL hospedada en Supabase, manejando y almacenando imagenes en cloudflare R2",
-    "section.projects2.title": "AI Chat - Un chatbot que corre en local",
+    "section.projects2.title": "AI Chat",
     "section.projects2.description":
-      "Un chatbot que corre en local, utilizando tu propia computadora para mantener conversaciones privadas, sin utilizar la nube o APIs externas, utilizando un modelo de lenguaje basado en Llama 3, y utilizando el framework AstroJS",
+      "Chatbot que corre en tu propia computadora para mantener conversaciones privadas, sin utilizar la nube o APIs externas, utilizando un modelo de lenguaje basado en Llama 3 y utilizando AstroJS",
+    "section.projects3.title": "Users Dashboard",
+    "section.projects3.description":
+      "Dashboard para administrar usuarios, creado con React",
+
     "section.about.title": "Sobre mí",
     "section.about.description.paragraph1":
       "Me llamo John Alexander Calle pero mis amigos me llaman Alex. Empecé en la programación hace 5 años. Desde entonces he ido aprendiendo mas y mas, enfrentando obstaculos y superandome a si mismo.",
@@ -68,6 +77,7 @@ export const ui = {
     "section.about.description.paragraph3.part6": "Me desafío constantemente",
     "section.about.description.paragraph3.part7":
       ", pero también valoro el trabajo en equipo. Creo firmemente en la colaboración y en aprovechar las fortalezas colectivas para resolver problemas de manera eficiente.",
+
     // footer
     "footer.about.title": "Sobre mí",
     "footer.contact.title": "Contacto",
@@ -79,11 +89,13 @@ export const ui = {
     "nav.about": "About",
     "nav.contact": "Contact",
     "nav.theme-toggle.label": "Choose a theme",
+
     // seo
     "seo.title":
       "Alexander's Portfolio - Web Developer and Programmer with 4 years of experience",
     "seo.description":
       "Hire Alexander to create your web application. Web Developer. Specialized in creating unique applications.",
+
     // hero
     "hero.hiring.badge": "Available for work",
     "hero.title": "Hey, I'm Alexander",
@@ -93,6 +105,7 @@ export const ui = {
       "from Medellin, Colombia. Specialized in web application development.",
     "hero.contact": "Contact me",
     "hero.linkedin": "LinkedIn",
+
     // section
     "section.experience.title": "Work Experience",
     "section.experience1.title": "PPC Indexer",
@@ -100,15 +113,19 @@ export const ui = {
     "section.experience1.company": "Talent.com",
     "section.experience1.description":
       "Optimized data management for job-based offers, resulting in a significant improvement in the performance of the extraction scripts. Implemented advanced JavaScript and efficient PHP techniques, reducing the execution time of the code. This not only promoted best practices in development, resulting in a more clean and maintainable code, but also significantly reduced the costs of computation in the cloud.",
+
+    "section.references.title": "References",
+
     "section.projects.title": "Projects",
-    "section.projects1.title":
-      "One Anime - A web application for viewing anime series",
+    "section.projects1.title": "One Anime",
     "section.projects1.description":
       "Web application for viewing anime series, implemented from scratch with Next.js and backend created with NodeJS, Express and other technologies, Utilizing web scraping to provide the base data of PostgreSQL hosted in Supabase, managing and storing images in cloudflare R2",
-    "section.projects2.title":
-      "AI Chat - A local chatbot that runs on your own computer",
+    "section.projects2.title": "AI Chat",
     "section.projects2.description":
-      "A local chatbot that runs on your own computer to maintain private conversations, without using the cloud or external APIs, using a language model based on Llama 3, and using the AstroJS framework",
+      "Chatbot that runs on your own computer for private conversations, without using the cloud or external APIs, using a language model based on Llama 3 and using AstroJS.",
+    "section.projects3.title": "Users Dashboard",
+    "section.projects3.description": "",
+
     "section.about.title": "About me",
     "section.about.description.paragraph1":
       "My name is John Alexander Calle but my friends call me Alex. I started programming 5 years ago. Since then I have been learning more and more, facing obstacles and overcoming myself.",
@@ -132,8 +149,9 @@ export const ui = {
     "section.about.description.paragraph3.part6": "I am constantly challenged",
     "section.about.description.paragraph3.part7":
       ", but I also value teamwork. I am a strong believer in collaboration and leveraging collective strengths to solve problems efficiently.",
+
     // footer
     "footer.about.title": "About me",
     "footer.contact.title": "Contact me",
   },
-} as const;
+} as const
