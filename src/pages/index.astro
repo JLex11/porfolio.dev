@@ -1,28 +1,30 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro"
 
-import AboutMe from "@/components/AboutMe.astro";
-import Briefcase from "@/components/icons/Briefcase.astro";
-import CodeIcon from "@/components/icons/Code.astro";
-import Experience from "@/components/Experience.astro";
-import ProfileCheck from "@/components/icons/ProfileCheck.astro";
-import Projects from "@/components/Projects.astro";
-import SectionContainer from "@/components/SectionContainer.astro";
-import Hero from "@/components/Hero.astro";
-import { useTranslations } from "@/i18n/utils";
-import type { ui } from "@/i18n/ui";
+import AboutMe from "@/components/AboutMe.astro"
+import Experience from "@/components/Experience.astro"
+import Hero from "@/components/Hero.astro"
+import Projects from "@/components/Projects.astro"
+import References from "@/components/References.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import Briefcase from "@/components/icons/Briefcase.astro"
+import CodeIcon from "@/components/icons/Code.astro"
+import People from "@/components/icons/People.astro"
+import ProfileCheck from "@/components/icons/ProfileCheck.astro"
+import type { ui } from "@/i18n/ui"
+import { useTranslations } from "@/i18n/utils"
 
-const currentLocale = Astro.currentLocale as keyof typeof ui;
-const t = useTranslations(currentLocale);
+const currentLocale = Astro.currentLocale as keyof typeof ui
+const t = useTranslations(currentLocale)
 ---
 
 <Layout title={t("seo.title")} description={t("seo.description")}>
-  <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
-      <Hero />
-    </SectionContainer>
-  </main>
-  <div class="space-y-24">
+  <main class="px-4 flex flex-col gap-40 mt-24">
+    <div>
+      <SectionContainer class="py-16 md:py-36">
+        <Hero />
+      </SectionContainer>
+    </div>
     <SectionContainer id="experiencia">
       <h2
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
@@ -31,6 +33,16 @@ const t = useTranslations(currentLocale);
         {t("section.experience.title")}
       </h2>
       <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="Referencias">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <People class="size-8" />
+        {t("section.references.title")}
+      </h2>
+      <References />
     </SectionContainer>
 
     <SectionContainer id="proyectos">
@@ -52,5 +64,5 @@ const t = useTranslations(currentLocale);
       </h2>
       <AboutMe />
     </SectionContainer>
-  </div>
+  </main>
 </Layout>
