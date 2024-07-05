@@ -66,6 +66,13 @@ const t = useTranslations(currentLocale)
 </style>
 
 <script>
+  function startViewTransition(callback: (...args: any[]) => void) {
+    if (document.startViewTransition) {
+      document.startViewTransition(async () => callback())
+    }
+    callback()
+  }
+
   document.addEventListener("astro:page-load", () => {
     let remove: null | (() => void) = null
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
@@ -105,7 +112,8 @@ const t = useTranslations(currentLocale)
         (themePreference === "system" && matchMedia.matches)
 
       updateIcon(themePreference)
-      document.startViewTransition(() => {
+
+      startViewTransition(() => {
         document.documentElement.classList[isDark ? "add" : "remove"]("dark")
       })
     }
