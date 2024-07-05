@@ -31,6 +31,12 @@ const { currentLocale } = Astro
       href={onestvariableWoff2}
       crossorigin
     />
+    <link rel="preload" as="image" href="/alexander.avif" />
+    <link rel="prefetch" as="image" href="/me.avif" />
+    <link rel="prefetch" as="image" href="/references/mariag.webp" />
+    <link rel="prefetch" as="image" href="/projects/one-anime-cut.avif" />
+    <link rel="prefetch" as="image" href="/projects/ai-chat.avif" />
+    <link rel="prefetch" as="image" href="/projects/users-dashboard.avif" />
     <title>{title}</title>
     <ViewTransitions />
   </head>
