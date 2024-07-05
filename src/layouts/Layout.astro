@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/onest"
+import onestvariableWoff2 from "@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url"
 
 import { ViewTransitions } from "astro:transitions"
 import Footer from "../components/Footer.astro"
@@ -23,6 +24,13 @@ const { currentLocale } = Astro
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:image" content="/porfolio.webp" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={onestvariableWoff2}
+      crossorigin
+    />
     <title>{title}</title>
     <ViewTransitions />
   </head>

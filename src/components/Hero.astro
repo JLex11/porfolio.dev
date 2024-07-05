@@ -6,6 +6,7 @@ import MailIcon from "@/components/icons/Mail.astro"
 import SocialPill from "@/components/SocialPill.astro"
 import type { ui } from "@/i18n/ui"
 import { useTranslations } from "@/i18n/utils"
+import { Image } from "astro:assets"
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
@@ -13,9 +14,13 @@ const t = useTranslations(currentLocale)
 
 <div class="max-w-xl">
   <div class="flex gap-4 mb-4">
-    <img
-      class="rounded-full shadow-lg size-16"
+    <Image
+      class="rounded-full shadow-lg size-16 aspect-square"
       src="/alexander.avif"
+      decoding="async"
+      width={64}
+      height={64}
+      fetchpriority="high"
       alt={personalImageAlt}
     />
     <a

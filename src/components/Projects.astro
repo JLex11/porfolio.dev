@@ -3,6 +3,7 @@ import GlowEffect from "@/components/GlowEffect.astro"
 import { TAGS } from "@/constants.astro"
 import type { ui } from "@/i18n/ui"
 import { useTranslations } from "@/i18n/utils"
+import { Image } from "astro:assets"
 import LinkButton from "./LinkButton.astro"
 import GitHub from "./icons/GitHub.astro"
 import Link from "./icons/Link.astro"
@@ -53,10 +54,13 @@ const PROJECTS = [
         >
           <div class="size-full absolute -z-[2] p-2">
             <div class="relative size-full rounded-lg overflow-hidden">
-              <img
+              <Image
                 alt={title}
                 class="object-cover size-full transition duration-500 group-hover:scale-110 scale-105 object-top"
                 loading="lazy"
+                decoding="async"
+                width={660}
+                height={390}
                 src={image}
               />
             </div>
