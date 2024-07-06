@@ -73,6 +73,19 @@ const { currentLocale } = Astro
         overscroll-behavior: none;
       }
 
+      p {
+        @apply text-pretty;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply text-balance;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
