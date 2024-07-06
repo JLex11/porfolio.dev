@@ -1,15 +1,15 @@
 ---
-import { languages } from "../i18n/ui";
-import { useTranslatedPath } from "../i18n/utils";
+import { languages } from "../i18n/ui"
+import { useTranslatedPath } from "../i18n/utils"
 
-const currentLocale = Astro.currentLocale as keyof typeof languages;
-const translatePath = useTranslatedPath(currentLocale);
+const currentLocale = Astro.currentLocale as keyof typeof languages
+const translatePath = useTranslatedPath(currentLocale)
 ---
 
 <ul>
   {
     Object.entries(languages).map(([lang, label]) => {
-      if (lang === currentLocale) return;
+      if (lang === currentLocale) return
 
       return (
         <li>
@@ -21,7 +21,7 @@ const translatePath = useTranslatedPath(currentLocale);
             {lang.toLocaleUpperCase()}
           </a>
         </li>
-      );
+      )
     })
   }
 </ul>
