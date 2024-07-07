@@ -48,8 +48,9 @@ const PROJECTS = [
       ({ image, title, description, tags, link, github, customClasses }) => (
         <article
           class:list={[
-            "ring-1 ring-black/20 dark:ring-white/15 flex flex-col group relative overflow-hidden rounded-xl shadow z-[5] backdrop-blur backdrop-brightness-110 backdrop-saturate-150 min-h-[25rem]",
+            "ring-1 ring-black/20 dark:ring-white/15 flex flex-col group relative overflow-hidden rounded-xl shadow z-[5] backdrop-blur backdrop-saturate-150 min-h-[25rem]",
             customClasses,
+            "animate-in-view",
           ]}
         >
           <div class="size-full absolute -z-[2] p-2">
@@ -65,9 +66,9 @@ const PROJECTS = [
               />
             </div>
           </div>
-          <div class="size-[calc(100%-1rem)] inset-0 m-auto rounded-lg absolute -z-[1] dark:gradient-mask-t-20 gradient-mask-t-40 backdrop-blur-sm" />
+          <div class="size-[calc(100%-1rem)] inset-0 m-auto rounded-lg absolute -z-[1] gradient-mask-t-20 backdrop-blur-sm" />
 
-          <div class="size-[calc(100%-1rem)] inset-0 m-auto p-4 rounded-lg flex flex-col justify-end bg-gradient-to-b from-transparent dark:to-black/70 to-white/80 to-80%">
+          <div class="size-[calc(100%-1rem)] inset-0 m-auto p-4 rounded-lg flex flex-col justify-end bg-gradient-to-b from-transparent dark:to-black/70 to-black/50 to-80%">
             <h3 class="text-3xl font-bold dark:text-gray-100 text-white drop-shadow-md">
               {title}
             </h3>
@@ -85,7 +86,7 @@ const PROJECTS = [
                 ))}
               </ul>
               <p
-                class="opacity-85 dark:text-gray-100 line-clamp-6"
+                class="opacity-85 dark:text-gray-100 text-white line-clamp-6"
                 title={description}
               >
                 {description}
