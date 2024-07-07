@@ -19,7 +19,11 @@
 		"formatter": {
 			"quoteStyle": "single",
 			"semicolons": "asNeeded",
-			"trailingCommas": "es5"
+			"trailingCommas": "es5",
+			"arrowParentheses": "asNeeded",
+			"bracketSpacing": true,
+			"jsxQuoteStyle": "single",
+			"quoteProperties": "asNeeded"
 		}
 	}
 }
