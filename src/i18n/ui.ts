@@ -46,7 +46,7 @@ export const ui = {
 		// one-anime
 		'section.projects1.title': 'One Anime',
 		'section.projects1.description':
-			'Aplicación web para ver series de anime, implementando frontend desde cero con Next.js y backend creado con NodeJS, Express y otras tecnologias, Haciendo uso de web scraping para proveer la base datos de PostgreSQL hospedada en Supabase, manejando y almacenando imagenes en cloudflare R2',
+			'Aplicación web de anime creada con Next.js (frontend) y Node.js/Express (backend). Utiliza web scraping para alimentar una base de datos PostgreSQL en Supabase y gestion de imagenes con Cloudflare R2.',
 		// ai-chat
 		'section.projects2.title': 'AI Chat',
 		'section.projects2.description':
@@ -54,7 +54,7 @@ export const ui = {
 		// users-dashboard
 		'section.projects3.title': 'Users Dashboard',
 		'section.projects3.description':
-			'Dashboard para administrar usuarios, creado con React. Haciendo uso correcto de los React hooks, manejando el estado global con useContext, data fetching con Tanstack Query y asi mismo implementando estos con custom hooks. Excelente interfaz de usuario y animaciones nativas con Tailwind y ViewTransitions API.',
+			'Dashboard de administración de usuarios en React haciendo uso de hooks nativos, useContext, Tanstack Query y custom hooks. UI creada con Tailwind y animaciones con ViewTransitions API. Tests implementados con Vitest.',
 
 		'section.about.title': 'Sobre mí',
 		'section.about.description.paragraph1':
@@ -123,7 +123,7 @@ export const ui = {
 		// one-anime
 		'section.projects1.title': 'One Anime',
 		'section.projects1.description':
-			'Web application for viewing anime series, implemented from scratch with Next.js and backend created with NodeJS, Express and other technologies, Utilizing web scraping to provide the base data of PostgreSQL hosted in Supabase, managing and storing images in cloudflare R2',
+			'Anime web application created with Next.js (frontend) and Node.js/Express (backend). It uses web scraping to feed a PostgreSQL database in Supabase and image management with Cloudflare R2.',
 		// ai-chat
 		'section.projects2.title': 'AI Chat',
 		'section.projects2.description':
@@ -131,7 +131,7 @@ export const ui = {
 		// users-dashboard
 		'section.projects3.title': 'Users Dashboard',
 		'section.projects3.description':
-			'Dashboard to manage users, created with React. Making correct use of React hooks, handling global state with useContext, data fetching with Tanstack Query and implementing these with custom hooks. Excellent UI and native animations with Tailwind and ViewTransitions API.',
+			'User management dashboard in React using native hooks, useContext, Tanstack Query and custom hooks. UI created with Tailwind and animations with ViewTransitions API. Tests implemented with Vitest.',
 
 		'section.about.title': 'About me',
 		'section.about.description.paragraph1':
