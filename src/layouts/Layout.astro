@@ -98,19 +98,21 @@ const { currentLocale } = Astro
         }
       }
 
-      .animate-in-view {
-        animation: in-view forwards;
-        animation-timeline: view(block);
-        animation-range: entry 35% cover 45%;
+      @supports (animation-timeline: view(block)) {
+        .animate-in-view {
+          animation: in-view forwards;
+          animation-timeline: view(block);
+          animation-range: entry 40% cover 45%;
 
-        opacity: 0;
-        transform: translateY(10rem) scale(0.95);
-      }
+          opacity: 0;
+          transform: translateY(5rem) scale(0.95);
+        }
 
-      @keyframes in-view {
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
+        @keyframes in-view {
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
         }
       }
 
