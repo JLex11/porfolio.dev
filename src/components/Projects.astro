@@ -54,9 +54,8 @@ const PROJECTS = [
       ({ image, title, description, tags, link, github, styles, bgStyles }) => (
         <article
           class:list={[
-            "flex flex-col group relative overflow-hidden rounded-xl shadow-md shadow-black/20 z-[5] backdrop-blur backdrop-saturate-150 min-h-[25rem]",
+            "animate-in-view flex flex-col group relative overflow-hidden rounded-xl shadow-md shadow-black/20 z-[5] min-h-[25rem]",
             styles,
-            "animate-in-view",
           ]}
         >
           <div class="size-full absolute -z-[2]">
@@ -65,7 +64,6 @@ const PROJECTS = [
                 alt={title}
                 class="object-cover size-full transition duration-500 group-hover:scale-110 scale-105 object-top"
                 loading="lazy"
-                decoding="async"
                 width={660}
                 height={390}
                 src={image}

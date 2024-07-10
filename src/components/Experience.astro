@@ -1,10 +1,10 @@
 ---
-import type { ui } from "@/i18n/ui";
-import ExperienceItem from "./ExperienceItem.astro";
-import { useTranslations } from "@/i18n/utils";
+import type { ui } from "@/i18n/ui"
+import { useTranslations } from "@/i18n/utils"
+import ExperienceItem from "./ExperienceItem.astro"
 
-const currentLocale = Astro.currentLocale as keyof typeof ui;
-const t = useTranslations(currentLocale);
+const currentLocale = Astro.currentLocale as keyof typeof ui
+const t = useTranslations(currentLocale)
 
 const EXPERIENCIE = [
   {
@@ -13,13 +13,13 @@ const EXPERIENCIE = [
     company: t("section.experience1.company"),
     description: t("section.experience1.description"),
   },
-];
+]
 ---
 
 <ol class="relative mt-16">
   {
     EXPERIENCIE.map((experiencie) => (
-      <li class="">
+      <li class="animate-in-view">
         <ExperienceItem {...experiencie} />
       </li>
     ))
