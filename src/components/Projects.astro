@@ -1,115 +1,135 @@
 ---
-import GlowEffect from "@/components/GlowEffect.astro"
-import { TAGS } from "@/constants.astro"
-import type { ui } from "@/i18n/ui"
-import { useTranslations } from "@/i18n/utils"
-import { Image } from "astro:assets"
-import LinkButton from "./LinkButton.astro"
-import GitHub from "./icons/GitHub.astro"
-import Link from "./icons/Link.astro"
+import GlowEffect from '@/components/GlowEffect.astro'
+import { TAGS } from '@/constants.astro'
+import type { ui } from '@/i18n/ui'
+import { useTranslations } from '@/i18n/utils.ts'
+import { Image } from 'astro:assets'
+import LinkButton from './LinkButton.astro'
+import GitHub from './icons/GitHub.astro'
+import Link from './icons/Link.astro'
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
 
 const PROJECTS = [
   {
-    title: t("section.projects1.title"),
-    description: t("section.projects1.description"),
-    link: "https://n-anime-app.vercel.app/",
-    github: "https://github.com/JLex11/n-anime-app",
-    image: "/projects/one-anime-cut.avif",
+    title: t('section.projects1.title'),
+    description: t('section.projects1.description'),
+    links: {
+      code: 'https://n-anime-app.vercel.app/',
+      github: 'https://github.com/JLex11/n-anime-app',
+    },
+    images: {
+      full: '/projects/one-anime-cut.avif',
+      placeholder: '/projects/one-anime-cut_placeholder.avif',
+    },
     bgStyles:
-      "bg-gradient-to-bl from-transparent to-[#5b7dbb]/90 to-60% from-30%",
+      'bg-gradient-to-bl from-transparent to-[#5b7dbb]/80 to-60% from-30%',
     tags: [TAGS.NEXT, TAGS.NODEJS, TAGS.EXPRESSJS, TAGS.POSTGRESQL],
-    styles: "lg:col-span-7 col-span-1 row-span-1",
+    styles: 'lg:col-span-7 col-span-1 row-span-1',
   },
   {
-    title: t("section.projects2.title"),
-    description: t("section.projects2.description"),
-    link: "https://ai-chat-six-psi.vercel.app/",
-    github: "https://github.com/JLex11/ai-chat",
-    image: "/projects/ai-chat.avif",
+    title: t('section.projects2.title'),
+    description: t('section.projects2.description'),
+    links: {
+      code: 'https://ai-chat-six-psi.vercel.app/',
+      github: 'https://github.com/JLex11/ai-chat',
+    },
+    images: {
+      full: '/projects/ai-chat.avif',
+      placeholder: '/projects/ai-chat_placeholder.avif',
+    },
     bgStyles:
-      "bg-gradient-to-l from-transparent to-[#202939]/85 to-80% from-10%",
+      'bg-gradient-to-l from-transparent to-[#202939]/85 to-80% from-10%',
     tags: [TAGS.ASTROJS, TAGS.LLAMA3, TAGS.TAILWIND],
-    styles: "lg:col-span-3 col-span-1 row-span-1",
+    styles: 'lg:col-span-3 col-span-1 row-span-1',
   },
   {
-    title: t("section.projects3.title"),
-    description: t("section.projects3.description"),
-    link: "https://users-dashboard-bay.vercel.app/",
-    github: "https://github.com/JLex11/users-dashboard",
-    image: "/projects/users-dashboard.avif",
+    title: t('section.projects3.title'),
+    description: t('section.projects3.description'),
+    links: {
+      code: 'https://users-dashboard-bay.vercel.app/',
+      github: 'https://github.com/JLex11/users-dashboard',
+    },
+    images: {
+      full: '/projects/users-dashboard.avif',
+      placeholder: '/projects/users-dashboard_placeholder.avif',
+    },
     bgStyles:
-      "bg-gradient-to-bl from-transparent to-[#242424]/95 to-60% from-20%",
+      'bg-gradient-to-bl from-transparent to-[#242424]/95 to-60% from-20%',
     tags: [TAGS.REACTJS, TAGS.TANSTACK, TAGS.TAILWIND, TAGS.VITEST],
-    styles: "lg:col-span-4 col-span-1 row-span-1",
+    styles: 'lg:col-span-4 col-span-1 row-span-1',
   },
 ]
 ---
 
-<div class="grid lg:grid-cols-7 grid-cols-1 grid-rows-2 gap-6 relative">
+<div class='grid lg:grid-cols-7 grid-cols-1 grid-rows-2 gap-6 relative'>
   {
     PROJECTS.map(
-      ({ image, title, description, tags, link, github, styles, bgStyles }) => (
+      ({ images, title, description, tags, links, styles, bgStyles }) => (
         <article
           class:list={[
-            "animate-in-view flex flex-col group relative overflow-hidden rounded-xl shadow-md shadow-black/20 z-[5] min-h-[25rem]",
+            'animate-in-view flex flex-col group relative overflow-hidden rounded-xl shadow-md shadow-black/20 z-[5] min-h-[25rem]',
             styles,
           ]}
         >
-          <div class="size-full absolute -z-[2]">
-            <div class="relative size-full rounded-lg overflow-hidden">
+          <div class='size-full absolute -z-[2]'>
+            <div
+              class='relative size-full rounded-lg overflow-hidden bg-cover bg-top bg-no-repeat'
+              style={`background-image: url(${images.placeholder})`}
+            >
               <Image
                 alt={title}
-                class="object-cover size-full transition duration-500 group-hover:scale-110 scale-105 object-top"
-                loading="lazy"
+                class='object-cover size-full transition duration-500 group-hover:scale-110 object-top'
+                loading='lazy'
+                decoding='async'
+                fetchpriority='low'
                 width={660}
                 height={390}
-                src={image}
+                src={images.full}
               />
             </div>
           </div>
-          <div class="size-full inset-0 m-auto rounded-lg absolute -z-[1] gradient-mask-r-10 backdrop-blur-sm" />
+          <div class='size-full inset-0 m-auto rounded-lg absolute -z-[1] gradient-mask-r-10 backdrop-blur-sm' />
 
           <div
             class:list={[
-              "size-full inset-0 m-auto p-4 rounded-lg flex flex-col justify-end",
+              'size-full inset-0 m-auto p-4 rounded-lg flex flex-col justify-end',
               bgStyles,
             ]}
           >
-            <h3 class="text-3xl font-bold dark:text-gray-100 text-white drop-shadow-md">
+            <h3 class='text-3xl font-bold dark:text-gray-100 text-white drop-shadow-md'>
               {title}
             </h3>
-            <div class="flex flex-col mt-2">
-              <ul class="flex flex-row mb-2 gap-2 flex-wrap max-w-full">
-                {tags.map((tag) => (
+            <div class='flex flex-col mt-2'>
+              <ul class='flex flex-row mb-2 gap-2 flex-wrap max-w-full'>
+                {tags.map(tag => (
                   <li>
                     <span
                       class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 text-nowrap`}
                     >
-                      <tag.icon class="size-4" />
+                      <tag.icon class='size-4' />
                       {tag.name}
                     </span>
                   </li>
                 ))}
               </ul>
               <p
-                class="opacity-85 dark:text-gray-100 text-white line-clamp-7 max-w-[40ch]"
+                class='opacity-85 dark:text-gray-100 text-white line-clamp-7 max-w-[40ch]'
                 title={description}
               >
                 {description}
               </p>
-              <footer class="flex items-end justify-start mt-4 gap-x-4">
-                {github && (
-                  <LinkButton href={github}>
-                    <GitHub class="size-6" />
+              <footer class='flex items-end justify-start mt-4 gap-x-4'>
+                {links.github && (
+                  <LinkButton href={links.github}>
+                    <GitHub class='size-6' />
                     Code
                   </LinkButton>
                 )}
-                {link && (
-                  <LinkButton href={link}>
-                    <Link class="size-4" />
+                {links.code && (
+                  <LinkButton href={links.code}>
+                    <Link class='size-4' />
                     Preview
                   </LinkButton>
                 )}
