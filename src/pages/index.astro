@@ -1,68 +1,68 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from '@/layouts/Layout.astro'
 
-import AboutMe from "@/components/AboutMe.astro"
-import Experience from "@/components/Experience.astro"
-import Hero from "@/components/Hero.astro"
-import Projects from "@/components/Projects.astro"
-import References from "@/components/References.astro"
-import SectionContainer from "@/components/SectionContainer.astro"
+import AboutMe from '@/components/AboutMe.astro'
+import Experience from '@/components/Experience.astro'
+import Hero from '@/components/Hero.astro'
+import Projects from '@/components/Projects.astro'
+import References from '@/components/References.astro'
+import SectionContainer from '@/components/SectionContainer.astro'
 
-import Briefcase from "@/components/icons/Briefcase.astro"
-import CodeIcon from "@/components/icons/Code.astro"
-import People from "@/components/icons/People.astro"
-import ProfileCheck from "@/components/icons/ProfileCheck.astro"
+import Briefcase from '@/components/icons/Briefcase.astro'
+import CodeIcon from '@/components/icons/Code.astro'
+import People from '@/components/icons/People.astro'
+import ProfileCheck from '@/components/icons/ProfileCheck.astro'
 
-import type { ui } from "@/i18n/ui"
-import { useTranslations } from "@/i18n/utils"
+import type { ui } from '@/i18n/ui'
+import { useTranslations } from '@/i18n/utils'
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
 ---
 
-<Layout title={t("seo.title")} description={t("seo.description")}>
-  <main class="px-4 flex flex-col gap-48 mt-24">
+<Layout title={t('seo.title')} description={t('seo.description')}>
+  <main class='px-4 flex flex-col gap-48 mt-24'>
     <div>
-      <SectionContainer class="py-16 md:py-36">
+      <SectionContainer class='py-16 md:py-36'>
         <Hero />
       </SectionContainer>
     </div>
-    <SectionContainer id="experiencia">
+    <SectionContainer id='experiencia'>
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
       >
-        <Briefcase class="size-8" />
-        {t("section.experience.title")}
+        <Briefcase class='size-8' />
+        {t('section.experience.title')}
       </h2>
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id="referencias">
+    <SectionContainer id='referencias'>
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
       >
-        <People class="size-8" />
-        {t("section.references.title")}
+        <People class='size-8' />
+        {t('section.references.title')}
       </h2>
       <References />
     </SectionContainer>
 
-    <SectionContainer id="proyectos">
+    <SectionContainer id='proyectos'>
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
       >
-        <CodeIcon class="size-7" />
-        {t("section.projects.title")}
+        <CodeIcon class='size-7' />
+        {t('section.projects.title')}
       </h2>
       <Projects />
     </SectionContainer>
 
-    <SectionContainer id="sobre-mi">
+    <SectionContainer id='sobre-mi'>
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white'
       >
-        <ProfileCheck class="size-8" />
-        {t("section.about.title")}
+        <ProfileCheck class='size-8' />
+        {t('section.about.title')}
       </h2>
       <AboutMe />
     </SectionContainer>
