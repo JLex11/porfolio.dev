@@ -1,8 +1,8 @@
 ---
-import { useTranslatedPath, useTranslations } from "@/i18n/utils"
-import ThemeToggle from "./ThemeToggle.astro"
-import type { ui } from "@/i18n/ui"
-import LanguajePicker from "./LanguajePicker.astro"
+import type { ui } from '@/i18n/ui'
+import { useTranslatedPath, useTranslations } from '@/i18n/utils'
+import LanguajePicker from './LanguajePicker.astro'
+import ThemeToggle from './ThemeToggle.astro'
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
@@ -10,39 +10,39 @@ const translatePath = useTranslatedPath(currentLocale)
 
 const navItems = [
   {
-    title: t("nav.experience"),
-    label: "experiencia",
-    url: translatePath("/#experiencia", currentLocale),
+    title: t('nav.experience'),
+    label: 'experiencia',
+    url: translatePath('/#experiencia', currentLocale),
   },
   {
-    title: t("nav.projects"),
-    label: "proyectos",
-    url: translatePath("/#proyectos", currentLocale),
+    title: t('nav.projects'),
+    label: 'proyectos',
+    url: translatePath('/#proyectos', currentLocale),
   },
   {
-    title: t("nav.about"),
-    label: "sobre-mi",
-    url: translatePath("/#sobre-mi", currentLocale),
+    title: t('nav.about'),
+    label: 'sobre-mi',
+    url: translatePath('/#sobre-mi', currentLocale),
   },
   {
-    title: t("nav.contact"),
-    label: "contacto",
-    url: "mailto:alexcalle.paola@gmail.com",
+    title: t('nav.contact'),
+    label: 'contacto',
+    url: 'mailto:alexcalle.paola@gmail.com',
   },
 ]
 ---
 
 <header
-  class="fixed top-0 z-50 flex items-center justify-center w-full mx-auto mt-2"
+  class='fixed top-0 z-50 flex items-center justify-center w-full mx-auto mt-2'
 >
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-9"
+    class='flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-9'
   >
     {
-      navItems.map((link) => (
+      navItems.map(link => (
         <a
           nav-item-link
-          class="relative px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 hidden md:block"
+          class='relative px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 hidden md:block'
           aria-label={link.label}
           href={link.url}
         >
@@ -56,49 +56,47 @@ const navItems = [
 </header>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll(
-      "section"
-    ) as NodeListOf<HTMLElement>
-    const navItems = document.querySelectorAll(
-      "header nav a[nav-item-link]"
-    ) as NodeListOf<HTMLElement>
+  const sections = document.querySelectorAll(
+    'section',
+  ) as NodeListOf<HTMLElement>
+  const navItems = document.querySelectorAll(
+    'header nav a[nav-item-link]',
+  ) as NodeListOf<HTMLElement>
 
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.setAttribute("data-active", "true")
-            } else {
-              item.removeAttribute("data-active")
-            }
-          })
-        }
-      })
-    }
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    })
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section)
+  const callback = (entries: any[]) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(item => {
+          if (item.getAttribute('aria-label') == entry.target.id) {
+            item.setAttribute('data-active', 'true')
+          } else {
+            item.removeAttribute('data-active')
+          }
         })
       }
-    }
+    })
+  }
+
+  const observer = new IntersectionObserver(callback, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3,
   })
+
+  sections.forEach(section => {
+    observer.observe(section)
+  })
+
+  // Cleanup function
+  document.onvisibilitychange = () => {
+    if (document.visibilityState === 'hidden') {
+      observer.disconnect()
+    } else {
+      sections.forEach(section => {
+        observer.observe(section)
+      })
+    }
+  }
 </script>
 
 <style is:global>
@@ -120,7 +118,7 @@ const navItems = [
     --nav-bg: rgb(31 41 55 / 0.9);
   }
 
-  header nav a[nav-item-link][data-active="true"] {
+  header nav a[nav-item-link][data-active='true'] {
     @apply text-yellow-500 block;
   }
 </style>
