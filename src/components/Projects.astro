@@ -12,54 +12,54 @@ const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
 
 const PROJECTS = [
-  {
-    title: t('section.projects1.title'),
-    description: t('section.projects1.description'),
-    links: {
-      code: 'https://n-anime-app.vercel.app/',
-      github: 'https://github.com/JLex11/n-anime-app',
-    },
-    images: {
-      full: '/projects/one-anime-cut.avif',
-      placeholder: '/projects/one-anime-cut_placeholder.avif',
-    },
-    bgStyles:
-      'bg-gradient-to-bl from-transparent to-[#5b7dbb]/80 to-60% from-30%',
-    tags: [TAGS.NEXT, TAGS.NODEJS, TAGS.EXPRESSJS, TAGS.POSTGRESQL],
-    styles: 'lg:col-span-7 col-span-1 row-span-1',
-  },
-  {
-    title: t('section.projects2.title'),
-    description: t('section.projects2.description'),
-    links: {
-      code: 'https://ai-chat-six-psi.vercel.app/',
-      github: 'https://github.com/JLex11/ai-chat',
-    },
-    images: {
-      full: '/projects/ai-chat.avif',
-      placeholder: '/projects/ai-chat_placeholder.avif',
-    },
-    bgStyles:
-      'bg-gradient-to-l from-transparent to-[#202939]/85 to-80% from-10%',
-    tags: [TAGS.ASTROJS, TAGS.LLAMA3, TAGS.TAILWIND],
-    styles: 'lg:col-span-3 col-span-1 row-span-1',
-  },
-  {
-    title: t('section.projects3.title'),
-    description: t('section.projects3.description'),
-    links: {
-      code: 'https://users-dashboard-bay.vercel.app/',
-      github: 'https://github.com/JLex11/users-dashboard',
-    },
-    images: {
-      full: '/projects/users-dashboard.avif',
-      placeholder: '/projects/users-dashboard_placeholder.avif',
-    },
-    bgStyles:
-      'bg-gradient-to-bl from-transparent to-[#242424]/95 to-60% from-20%',
-    tags: [TAGS.REACTJS, TAGS.TANSTACK, TAGS.TAILWIND, TAGS.VITEST],
-    styles: 'lg:col-span-4 col-span-1 row-span-1',
-  },
+	{
+		title: t('section.projects1.title'),
+		description: t('section.projects1.description'),
+		links: {
+			code: 'https://n-anime-app.vercel.app/',
+			github: 'https://github.com/JLex11/n-anime-app',
+		},
+		images: {
+			full: '/projects/one-anime-cut.avif',
+			placeholder: '/projects/one-anime-cut_placeholder.avif',
+		},
+		bgStyles:
+			'bg-gradient-to-bl from-transparent to-[#5b7dbb]/80 to-60% from-30%',
+		tags: [TAGS.NEXT, TAGS.NODEJS, TAGS.EXPRESSJS, TAGS.POSTGRESQL],
+		styles: 'lg:col-span-7 col-span-1 row-span-1',
+	},
+	{
+		title: t('section.projects2.title'),
+		description: t('section.projects2.description'),
+		links: {
+			code: 'https://ai-chat-six-psi.vercel.app/',
+			github: 'https://github.com/JLex11/ai-chat',
+		},
+		images: {
+			full: '/projects/ai-chat.avif',
+			placeholder: '/projects/ai-chat_placeholder.avif',
+		},
+		bgStyles:
+			'bg-gradient-to-l from-transparent to-[#202939]/85 to-80% from-10%',
+		tags: [TAGS.ASTROJS, TAGS.LLAMA3, TAGS.TAILWIND],
+		styles: 'lg:col-span-3 col-span-1 row-span-1',
+	},
+	{
+		title: t('section.projects3.title'),
+		description: t('section.projects3.description'),
+		links: {
+			code: 'https://users-dashboard-bay.vercel.app/',
+			github: 'https://github.com/JLex11/users-dashboard',
+		},
+		images: {
+			full: '/projects/users-dashboard.avif',
+			placeholder: '/projects/users-dashboard_placeholder.avif',
+		},
+		bgStyles:
+			'bg-gradient-to-bl from-transparent to-[#242424]/95 to-60% from-20%',
+		tags: [TAGS.REACTJS, TAGS.TANSTACK, TAGS.TAILWIND, TAGS.VITEST],
+		styles: 'lg:col-span-4 col-span-1 row-span-1',
+	},
 ]
 ---
 
