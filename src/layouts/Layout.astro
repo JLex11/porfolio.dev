@@ -1,10 +1,9 @@
 ---
-import "@fontsource-variable/onest"
-import onestvariableWoff2 from "@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url"
+import '@fontsource-variable/onest'
+import onestvariableWoff2 from '@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url'
 
-import { ViewTransitions } from "astro:transitions"
-import Footer from "../components/Footer.astro"
-import Header from "../components/Header.astro"
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
 
 interface Props {
   title: string
@@ -18,34 +17,27 @@ const { currentLocale } = Astro
 <!doctype html>
 <html lang={currentLocale}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta property="og:image" content="/porfolio.webp" />
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <meta property='og:image' content='/porfolio.webp' />
     <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
+      rel='preload'
+      as='font'
+      type='font/woff2'
       href={onestvariableWoff2}
       crossorigin
     />
-    <link rel="preload" as="image" href="/alexander.avif" />
-    <link rel="prefetch" as="image" href="/me.avif" />
-    <link rel="prefetch" as="image" href="/references/mariag.webp" />
-    <link rel="prefetch" as="image" href="/projects/one-anime-cut.avif" />
-    <link rel="prefetch" as="image" href="/projects/ai-chat.avif" />
-    <link rel="prefetch" as="image" href="/projects/users-dashboard.avif" />
     <title>{title}</title>
-    <ViewTransitions />
   </head>
 
-  <body class="relative text-black dark:text-white">
+  <body class='relative text-black dark:text-white'>
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+      class='absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
       bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
     >
     </div>
     <Header />
@@ -61,7 +53,7 @@ const { currentLocale } = Astro
       }
 
       html {
-        font-family: "Onest Variable", system-ui, sans-serif;
+        font-family: 'Onest Variable', system-ui, sans-serif;
         scroll-behavior: smooth;
       }
 
@@ -105,7 +97,7 @@ const { currentLocale } = Astro
           animation-range: entry 40% cover 45%;
 
           opacity: 0;
-          transform: translateY(5rem) scale(0.95);
+          transform: translateY(5rem) scale(0.9);
         }
 
         @keyframes in-view {
@@ -124,7 +116,7 @@ const { currentLocale } = Astro
 
       @keyframes blur {
         to {
-          backdrop-filter: blur(20px);
+          backdrop-filter: blur(10px);
           border-width: 1px;
           border-color: rgba(0, 0, 0);
           padding: 0.25rem 0.75rem;
