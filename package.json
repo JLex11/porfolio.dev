@@ -11,15 +11,15 @@
 		"biome": "biome lint --write && biome format --write"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.5.6",
+		"@astrojs/check": "0.8.2",
 		"@astrojs/tailwind": "5.1.0",
-		"@fontsource-variable/onest": "5.0.2",
-		"astro": "4.4.5",
+		"@fontsource-variable/onest": "5.0.4",
+		"astro": "4.12.2",
 		"astro-robots-txt": "1.0.0",
 		"tailwind-gradient-mask-image": "^1.2.0",
-		"tailwind-merge": "^2.3.0",
-		"tailwindcss": "3.4.1",
-		"typescript": "5.3.3",
+		"tailwind-merge": "^2.4.0",
+		"tailwindcss": "3.4.6",
+		"typescript": "5.5.3",
 		"view-transitions-api-types": "^0.1.1"
 	},
 	"devDependencies": {
