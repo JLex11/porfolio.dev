@@ -1,5 +1,6 @@
 ---
 const personalImageAlt = 'Alexander Calle'
+import alexanderImg from '@/assets/alexander.avif'
 import Badge from '@/components/Badge.astro'
 import SocialPill from '@/components/SocialPill.astro'
 import LinkedInIcon from '@/components/icons/LinkedIn.astro'
@@ -16,7 +17,7 @@ const t = useTranslations(currentLocale)
   <div class='flex gap-4 mb-4'>
     <Image
       class='rounded-full shadow-lg size-16 aspect-square'
-      src='/alexander.avif'
+      src={alexanderImg}
       width={64}
       height={64}
       alt={personalImageAlt}
