@@ -1,9 +1,9 @@
 ---
-import { Image } from 'astro:assets'
 import GlowEffect from '@/components/GlowEffect.astro'
 import { TAGS } from '@/constants.astro'
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils.ts'
+import { Image } from 'astro:assets'
 import LinkButton from './LinkButton.astro'
 import GitHub from './icons/GitHub.astro'
 import Link from './icons/Link.astro'
@@ -82,8 +82,8 @@ const PROJECTS = [
                 loading='lazy'
                 decoding='async'
                 fetchpriority='low'
-                width={660}
-                height={390}
+                width={800}
+                height={400}
                 src={images.full}
               />
             </div>
@@ -92,15 +92,15 @@ const PROJECTS = [
 
           <div
             class:list={[
-              'size-full inset-0 m-auto p-4 rounded-lg flex flex-col justify-end',
+              'size-full inset-0 m-auto p-4 rounded-lg flex flex-col justify-end gap-y-4',
               bgStyles,
             ]}
           >
             <h3 class='text-3xl font-bold dark:text-gray-100 text-white drop-shadow-md'>
               {title}
             </h3>
-            <div class='flex flex-col mt-2'>
-              <ul class='flex flex-row mb-2 gap-2 flex-wrap max-w-full'>
+            <div class='flex flex-col gap-y-2'>
+              <ul class='flex flex-row gap-2 flex-wrap max-w-full'>
                 {tags.map(tag => (
                   <li>
                     <span
@@ -113,12 +113,12 @@ const PROJECTS = [
                 ))}
               </ul>
               <p
-                class='opacity-85 dark:text-gray-100 text-white line-clamp-7 max-w-[40ch]'
+                class='opacity-85 dark:text-gray-100 text-white line-clamp-7 max-w-[40ch] overflow-hidden'
                 title={description}
               >
                 {description}
               </p>
-              <footer class='flex items-end justify-start mt-4 gap-x-4'>
+              <footer class='flex items-end justify-start gap-x-4'>
                 {links.github && (
                   <LinkButton href={links.github}>
                     <GitHub class='size-6' />
