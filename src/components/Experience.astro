@@ -7,19 +7,19 @@ const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
 
 const EXPERIENCIE = [
-	{
-		date: t('section.experience1.date'),
-		title: t('section.experience1.title'),
-		company: t('section.experience1.company'),
-		description: t('section.experience1.description'),
-	},
+  {
+    date: t('section.experience1.date'),
+    title: t('section.experience1.title'),
+    company: t('section.experience1.company'),
+    description: t('section.experience1.description'),
+  },
 ]
 ---
 
-<ol class="relative mt-16">
+<ol class='relative'>
   {
-    EXPERIENCIE.map((experiencie) => (
-      <li class="animate-in-view">
+    EXPERIENCIE.map(experiencie => (
+      <li class='animate-in-view'>
         <ExperienceItem {...experiencie} />
       </li>
     ))
