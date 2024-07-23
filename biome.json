@@ -23,7 +23,8 @@
 			"arrowParentheses": "asNeeded",
 			"bracketSpacing": true,
 			"jsxQuoteStyle": "single",
-			"quoteProperties": "asNeeded"
+			"quoteProperties": "asNeeded",
+			"lineWidth": 120
 		}
 	}
 }
