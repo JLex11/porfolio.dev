@@ -29,7 +29,7 @@ const t = useTranslations(currentLocale)
     </div>
     <SectionContainer id='experiencia'>
       <h2
-        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
+        class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
       >
         <Briefcase class='size-8' />
         {t('section.experience.title')}
@@ -37,9 +37,9 @@ const t = useTranslations(currentLocale)
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id='referencias'>
+    <SectionContainer id='referencias' observable={false}>
       <h2
-        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
+        class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
       >
         <People class='size-8' />
         {t('section.references.title')}
@@ -49,7 +49,7 @@ const t = useTranslations(currentLocale)
 
     <SectionContainer id='proyectos'>
       <h2
-        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
+        class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
       >
         <CodeIcon class='size-7' />
         {t('section.projects.title')}
@@ -59,7 +59,7 @@ const t = useTranslations(currentLocale)
 
     <SectionContainer id='sobre-mi'>
       <h2
-        class='animate-in-view flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white'
+        class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white'
       >
         <ProfileCheck class='size-8' />
         {t('section.about.title')}
