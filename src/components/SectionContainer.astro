@@ -1,11 +1,15 @@
 ---
-const { class: className, id } = Astro.props
+const { class: className, id, observable = true } = Astro.props
 ---
 
 <section
   id={id}
   data-section={id}
-  class={`section ${className} scroll-m-20 w-full mx-auto container max-w-[min(100%,60rem)]`}
+  data-observable={observable}
+  class:list={[
+    'section scroll-m-20 w-full mx-auto container max-w-[min(100%,60rem)]',
+    className,
+  ]}
 >
   <slot />
 </section>
