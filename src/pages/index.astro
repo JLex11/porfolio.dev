@@ -37,16 +37,6 @@ const t = useTranslations(currentLocale)
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id='referencias' observable={false}>
-      <h2
-        class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
-      >
-        <People class='size-8' />
-        {t('section.references.title')}
-      </h2>
-      <References />
-    </SectionContainer>
-
     <SectionContainer id='proyectos'>
       <h2
         class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
@@ -55,6 +45,16 @@ const t = useTranslations(currentLocale)
         {t('section.projects.title')}
       </h2>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id='referencias' observable={false}>
+      <h2
+        class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'
+      >
+        <People class='size-8' />
+        {t('section.references.title')}
+      </h2>
+      <References />
     </SectionContainer>
 
     <SectionContainer id='sobre-mi'>
