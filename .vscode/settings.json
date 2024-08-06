@@ -4,5 +4,7 @@
 	"editor.codeActionsOnSave": {
 		"quickfix.biome": "always",
 		"source.organizeImports.biome": "always"
-	}
+	},
+	"spellright.language": ["en", "es"],
+	"spellright.documentTypes": ["markdown", "latex", "plaintext"]
 }
