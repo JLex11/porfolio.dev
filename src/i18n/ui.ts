@@ -26,7 +26,7 @@ export const ui = {
 		'hero.title': 'Hey, soy Alexander',
 		'hero.text1': '+4 años de experiencia.',
 		'hero.text2': 'Desarrollador de Software y Entusiasta de la Programación',
-		'hero.text3': 'de Medellin, Colombia. Especializado en el desarrollo de aplicaciones web.',
+		'hero.text3': 'de Medellín, Colombia. Especializado en el desarrollo de aplicaciones web.',
 		'hero.contact': 'Contáctame',
 		'hero.linkedin': 'LinkedIn',
 
@@ -44,15 +44,15 @@ export const ui = {
 		// one-anime
 		'section.projects1.title': 'One Anime',
 		'section.projects1.description':
-			'Aplicación web de anime creada con Next.js (frontend) y Node.js/Express (backend). Utiliza web scraping para alimentar una base de datos PostgreSQL en Supabase y gestion de imágenes con Cloudflare R2.',
+			'Aplicación web de anime creada con Next.js (frontend) y Node.js/Express (backend). Utiliza web scraping para alimentar una base de datos PostgreSQL en Supabase y gestión de imágenes con Cloudflare R2.',
 		// ai-chat
 		'section.projects2.title': 'AI Chat',
 		'section.projects2.description':
-			'Chatbot que corre en tu propia computadora para mantener conversaciones privadas, sin utilizar la nube o APIs externas, utilizando un modelo de lenguaje basado en Llama 3 y utilizando AstroJS',
+			"Chatbot que corre en tu propia computadora para mantener conversaciones privadas, sin utilizar la nube o API's externas, utilizando un modelo de lenguaje basado en Llama 3 y utilizando AstroJS",
 		// users-dashboard
 		'section.projects3.title': 'Users Dashboard',
 		'section.projects3.description':
-			'Dashboard de administración de usuarios en React haciendo uso de hooks nativos, useContext, Tanstack Query y custom hooks. UI creada con Tailwind y animaciones con ViewTransitions API. Tests implementados con Vitest.',
+			"Dashboard de administración de usuarios en React haciendo uso de hooks nativos, useContext, Tanstack Query y custom hooks. UI creada con Tailwind y animaciones con ViewTransitions API. Test's implementados con Vitest.",
 
 		'section.about.title': 'Sobre mí',
 		'section.about.description.paragraph1':
