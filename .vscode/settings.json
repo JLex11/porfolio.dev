@@ -5,6 +5,6 @@
 		"quickfix.biome": "always",
 		"source.organizeImports.biome": "always"
 	},
-	"spellright.language": ["en", "es"],
+	"spellright.language": ["en"],
 	"spellright.documentTypes": ["markdown", "latex", "plaintext"]
 }
