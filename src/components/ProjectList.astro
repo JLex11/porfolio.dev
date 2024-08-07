@@ -1,0 +1,26 @@
+---
+import type { TAGS } from '@/constants.astro'
+
+type Tag = (typeof TAGS)[keyof typeof TAGS]
+
+interface Props {
+  tags: Tag[]
+}
+
+const { tags } = Astro.props
+---
+
+<ul class='flex flex-row gap-2 flex-wrap max-w-full'>
+  {
+    tags.map(tag => (
+      <li>
+        <span
+          class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 text-nowrap`}
+        >
+          <tag.icon class='size-4' />
+          {tag.name}
+        </span>
+      </li>
+    ))
+  }
+</ul>

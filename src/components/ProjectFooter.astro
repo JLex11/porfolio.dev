@@ -1,0 +1,33 @@
+---
+import LinkButton from './LinkButton.astro'
+import GitHub from './icons/GitHub.astro'
+import Link from './icons/Link.astro'
+
+interface Props {
+  links: {
+    code: string
+    github: string
+  }
+}
+
+const { links } = Astro.props
+---
+
+<footer class='flex items-end justify-start gap-x-4'>
+  {
+    links.github && (
+      <LinkButton href={links.github}>
+        <GitHub class='size-6' />
+        Code
+      </LinkButton>
+    )
+  }
+  {
+    links.code && (
+      <LinkButton href={links.code}>
+        <Link class='size-4' />
+        Preview
+      </LinkButton>
+    )
+  }
+</footer>

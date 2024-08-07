@@ -1,12 +1,14 @@
 ---
+import { Image } from 'astro:assets'
 import GlowEffect from '@/components/GlowEffect.astro'
+import ProjectBackground from '@/components/ProjectBackground.astro'
+import ProjectFooter from '@/components/ProjectFooter.astro'
+import ProjectList from '@/components/ProjectList.astro'
+
 import { TAGS } from '@/constants.astro'
+
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils.ts'
-import { Image } from 'astro:assets'
-import LinkButton from './LinkButton.astro'
-import GitHub from './icons/GitHub.astro'
-import Link from './icons/Link.astro'
 
 import aiChatImg from '@/assets/projects/ai-chat.avif'
 import oneAnimeImg from '@/assets/projects/one-anime-cut.avif'
@@ -74,21 +76,17 @@ const PROJECTS = [
             styles,
           ]}
         >
-          <div class='size-full absolute -z-[2]'>
-            <div class='relative size-full rounded-lg overflow-hidden bg-cover bg-top bg-no-repeat'>
-              <Image
-                alt={title}
-                class='object-cover size-full transition duration-500 group-hover:scale-110 object-top'
-                loading='lazy'
-                decoding='async'
-                fetchpriority='low'
-                width={800}
-                height={400}
-                src={images.full}
-              />
-            </div>
-          </div>
-          <div class='size-full inset-0 m-auto rounded-lg absolute -z-[1] gradient-mask-r-10 backdrop-blur-sm' />
+          <ProjectBackground>
+            <Image
+              alt={title}
+              class='object-cover size-full transition duration-500 group-hover:scale-110 object-top'
+              loading='lazy'
+              decoding='async'
+              width={800}
+              height={400}
+              src={images.full}
+            />
+          </ProjectBackground>
 
           <div
             class:list={[
@@ -99,39 +97,15 @@ const PROJECTS = [
             <h3 class='text-3xl font-bold dark:text-gray-100 text-white drop-shadow-md'>
               {title}
             </h3>
-            <div class='flex flex-col gap-y-2'>
-              <ul class='flex flex-row gap-2 flex-wrap max-w-full'>
-                {tags.map(tag => (
-                  <li>
-                    <span
-                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 text-nowrap`}
-                    >
-                      <tag.icon class='size-4' />
-                      {tag.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            <div class='flex flex-col gap-y-4'>
+              <ProjectList tags={tags} />
               <p
                 class='opacity-85 dark:text-gray-100 text-white line-clamp-7 max-w-[40ch] overflow-hidden'
                 title={description}
               >
                 {description}
               </p>
-              <footer class='flex items-end justify-start gap-x-4'>
-                {links.github && (
-                  <LinkButton href={links.github}>
-                    <GitHub class='size-6' />
-                    Code
-                  </LinkButton>
-                )}
-                {links.code && (
-                  <LinkButton href={links.code}>
-                    <Link class='size-4' />
-                    Preview
-                  </LinkButton>
-                )}
-              </footer>
+              <ProjectFooter links={links} />
             </div>
           </div>
         </article>
