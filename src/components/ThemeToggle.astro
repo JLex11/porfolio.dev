@@ -67,9 +67,8 @@ const t = useTranslations(currentLocale)
 
 <script>
   function startViewTransition(callback: (...args: any[]) => void) {
-    if (document.startViewTransition) {
+    if (document.startViewTransition)
       document.startViewTransition(async () => callback())
-    }
     callback()
   }
 
@@ -107,9 +106,8 @@ const t = useTranslations(currentLocale)
       themePreference === 'dark' ||
       (themePreference === 'system' && matchMedia.matches)
 
-    updateIcon(themePreference)
-
     startViewTransition(() => {
+      updateIcon(themePreference)
       document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
     })
   }
