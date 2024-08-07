@@ -24,7 +24,7 @@ export const ui = {
 		// hero
 		'hero.hiring.badge': 'Disponible para trabajar',
 		'hero.title': 'Hey, soy Alexander',
-		'hero.text1': '+4 años de experiencia.',
+		'hero.text1': '+2 años de experiencia.',
 		'hero.text2': 'Desarrollador de Software y Entusiasta de la Programación',
 		'hero.text3': 'de Medellín, Colombia. Especializado en el desarrollo de aplicaciones web.',
 		'hero.contact': 'Contáctame',
@@ -93,7 +93,7 @@ export const ui = {
 		// hero
 		'hero.hiring.badge': 'Available for work',
 		'hero.title': "Hey, I'm Alexander",
-		'hero.text1': '+4 years of experience.',
+		'hero.text1': '+2 years of experience.',
 		'hero.text2': 'Software Developer and Programming Enthusiast',
 		'hero.text3': 'from Medellin, Colombia. Specialized in web application development.',
 		'hero.contact': 'Contact me',
