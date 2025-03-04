@@ -17,7 +17,7 @@ export const ui = {
 		'nav.theme-toggle.label': 'Elige el tema',
 
 		// seo
-		'seo.title': 'Porfolio de Alexander - Desarrollador y Programador Web con 4 años de experiencia',
+		'seo.title': 'Porfolio de Alexander - Desarrollador y Programador Web con 2 años de experiencia',
 		'seo.description':
 			'Contrata a Alexander para crear tu aplicación web. Desarrollador Web. Especializado en crear aplicaciones únicas.',
 
@@ -86,7 +86,7 @@ export const ui = {
 		'nav.theme-toggle.label': 'Choose a theme',
 
 		// seo
-		'seo.title': "Alexander's Portfolio - Web Developer and Programmer with 4 years of experience",
+		'seo.title': "Alexander's Portfolio - Web Developer and Programmer with 2 years of experience",
 		'seo.description':
 			'Hire Alexander to create your web application. Web Developer. Specialized in creating unique applications.',
 
