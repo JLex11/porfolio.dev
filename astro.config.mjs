@@ -5,6 +5,8 @@ import robotsTxt from 'astro-robots-txt'
 
 import tailwindcss from '@tailwindcss/vite'
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [robotsTxt(), compressor({ brotli: true })],
@@ -18,4 +20,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: vercel(),
 })
