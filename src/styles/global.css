@@ -1,2 +1,30 @@
 @import "tailwindcss";
 @plugin "@pyncz/tailwind-mask-image";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    @apply font-sans scroll-smooth;
+  }
+
+  @supports (animation-timeline: view(block)) {
+    .animate-in-view {
+      opacity: 0;
+      transform: translateY(0.5rem) scale(0.95);
+      animation: in-view forwards;
+      animation-timeline: view(block);
+      animation-range: entry 30% cover 35%;
+    }
+
+    @keyframes in-view {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  }
+}
