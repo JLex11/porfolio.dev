@@ -5,7 +5,7 @@ import robotsTxt from 'astro-robots-txt'
 
 import tailwindcss from '@tailwindcss/vite'
 
-import vercel from '@astrojs/vercel';
+import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +20,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
+  output: 'server',
   adapter: vercel(),
 })
