@@ -5,6 +5,8 @@ import onestvariableWoff2 from '@fontsource-variable/onest/files/onest-latin-wgh
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 
+import './src/styles/global.css'
+
 interface Props {
   title: string
   description: string
@@ -106,7 +108,9 @@ const { currentLocale } = Astro
   .bg_pattern {
     --bg-pattern-from: #93c5fd;
     --bg-pattern-to: #e5e5f7;
-    @apply gradient-mask-b-0;
+    mask-image: linear-gradient(to bottom, black, transparent);
+    mask-repeat: no-repeat;
+    mask-position: bottom;
 
     background-color: var(--bg-pattern-to);
     opacity: 0.6;
