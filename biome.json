@@ -3,6 +3,15 @@
 	"organizeImports": {
 		"enabled": true
 	},
+	"files": {
+		"ignore": [
+			"node_modules",
+			"dist",
+			"build",
+			"coverage",
+			"*.min.{js|ts|jsx|tsx}"
+		]
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
