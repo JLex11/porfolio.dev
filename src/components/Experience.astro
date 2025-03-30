@@ -2,6 +2,7 @@
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils'
 import ExperienceItem from './ExperienceItem.astro'
+import { processHighlightedText } from '@/utils/processHighlightedText'
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
@@ -11,7 +12,7 @@ const EXPERIENCIE = [
     date: t('section.experience1.date'),
     title: t('section.experience1.title'),
     company: t('section.experience1.company'),
-    description: t('section.experience1.description'),
+    description: processHighlightedText(t('section.experience1.description')),
   },
 ]
 ---

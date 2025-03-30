@@ -1,5 +1,4 @@
 ---
-const personalImageAlt = 'Alexander Calle'
 import alexanderImg from '@/assets/alexander.avif'
 import Badge from '@/components/Badge.astro'
 import SocialPill from '@/components/SocialPill.astro'
@@ -7,10 +6,13 @@ import LinkedInIcon from '@/components/icons/LinkedIn.astro'
 import MailIcon from '@/components/icons/Mail.astro'
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils'
+import { processHighlightedText } from '@/utils/processHighlightedText'
 import { Image } from 'astro:assets'
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
+
+const heroText = processHighlightedText(t('hero.text'))
 ---
 
 <div class='max-w-2xl'>
@@ -20,7 +22,7 @@ const t = useTranslations(currentLocale)
       src={alexanderImg}
       width={64}
       height={64}
-      alt={personalImageAlt}
+      alt='Alexander Calle'
       decoding='async'
       loading='eager'
       fetchpriority='high'
@@ -41,11 +43,8 @@ const t = useTranslations(currentLocale)
   </h1>
   <p
     class='mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300'
-  >
-    {t('hero.text1')}
-    <strong>{t('hero.text2')}</strong>
-    {t('hero.text3')}
-  </p>
+    set:html={heroText}
+  />
   <nav class='flex flex-wrap gap-4 mt-8'>
     <SocialPill href='mailto:alexcalle.paola@gmail.com'>
       <MailIcon class='size-4' />
