@@ -33,10 +33,10 @@ const navItems = [
 ---
 
 <header
-  class='fixed top-0 z-50 flex items-center justify-center w-full mx-auto mt-2'
+  class='fixed top-8 z-50 flex items-center justify-center w-full mx-auto mt-0'
 >
   <nav
-    class='flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-9'
+    class='flex px-3 text-sm font-medium gap-3 rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-9'
   >
     {
       navItems.map(link => (
@@ -84,30 +84,43 @@ const navItems = [
 </script>
 
 <style is:global>
+  header {
+    animation: header-fixed 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 300px;
+  }
+
+  @keyframes header-fixed {
+    to {
+      top: 0.25rem;
+    }
+  }
+
   header nav {
     --nav-bg: rgb(255 255 255 / 0.7);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    --shadow-lg: 0 10px 15px -3px rgba(4, 3, 3, 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --blur-md: blur(10px);
+    --blur-md: 10px;
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
-    animation-range: 0 100px;
+    animation-range: 0 200px;
+    will-change: backdrop-filter, box-shadow, background-color;
   }
 
   @keyframes nav-shadown {
     to {
       box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(var(--blur-md));
+      backdrop-filter: blur(var(--blur-md)) saturate(5);
       background-color: var(--nav-bg);
+      gap: 0;
     }
   }
 
   .dark header nav {
-    --nav-bg: rgb(31 41 55 / 0.7);
+    --nav-bg: rgb(31 41 55 / 0.8);
   }
 
   header nav a[nav-item-link][data-active='true'] {
-    /* @apply text-yellow-500 block; */
     color: var(--color-yellow-500);
     display: block;
   }

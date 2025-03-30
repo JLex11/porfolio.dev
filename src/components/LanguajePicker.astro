@@ -14,9 +14,10 @@ const translatePath = useTranslatedPath(currentLocale)
       return (
         <li>
           <a
-            href={translatePath("/", lang)}
+            href={translatePath('/', lang)}
             title={label}
-            class="transition hover:text-blue-700 dark:hover:text-blue-700 px-2 py-2 relative"
+            class='transition hover:text-blue-700 dark:hover:text-blue-700 px-2 py-2 relative'
+            data-languaje-link
           >
             {lang.toLocaleUpperCase()}
           </a>
@@ -25,3 +26,24 @@ const translatePath = useTranslatedPath(currentLocale)
     })
   }
 </ul>
+
+<script>
+  function startViewTransition(callback: (...args: any[]) => void) {
+    if (document.startViewTransition)
+      document.startViewTransition(async () => callback())
+    callback()
+  }
+
+  const languajeLinks = document.querySelectorAll('[data-languaje-link]')
+
+  languajeLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault()
+      const currentTarget = e.currentTarget as HTMLAnchorElement
+      const url = currentTarget.getAttribute('href')!
+      startViewTransition(() => {
+        window.location.href = url
+      })
+    })
+  })
+</script>

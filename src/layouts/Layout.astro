@@ -1,11 +1,12 @@
 ---
 import '@fontsource-variable/onest'
 import onestvariableWoff2 from '@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url'
+import { ClientRouter } from 'astro:transitions'
 
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 
-import './src/styles/global.css'
+import '../styles/global.css'
 
 interface Props {
   title: string
@@ -14,10 +15,22 @@ interface Props {
 
 const { description, title } = Astro.props
 const { currentLocale } = Astro
+
+let isDark = false
+
+if (Astro.cookies.has('isDark')) {
+  const value = Astro.cookies.get('isDark')?.value
+  isDark = value === 'true'
+  console.log('isDark', isDark)
+}
 ---
 
 <!doctype html>
-<html lang={currentLocale}>
+<html
+  lang={currentLocale}
+  class:list={[isDark && 'dark']}
+  class='font-onest scroll-smooth motion-reduce:scroll-auto'
+>
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
@@ -32,10 +45,13 @@ const { currentLocale } = Astro
       href={onestvariableWoff2}
       crossorigin
     />
+    <ClientRouter />
     <title>{title}</title>
   </head>
 
-  <body class='relative text-black dark:text-white'>
+  <body
+    class='relative text-neutral-900 dark:text-neutral-200 flex flex-col min-h-screen overscroll-none [&>p]:leading-7 [&>p]:text-base [&>p]:text-pretty [&:where(h1,h2,h3,h4,h5,h6)]:text-balance'
+  >
     <div
       class='absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
       bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
@@ -49,62 +65,7 @@ const { currentLocale } = Astro
   </body>
 </html>
 
-<style is:global>
-  /* * {
-        outline: 1px solid red;
-      } */
-
-  :root {
-    color-scheme: light dark;
-  }
-
-  @view-transition {
-    navigation: auto;
-  }
-
-  html {
-    font-family: 'Onest Variable', system-ui, sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    color: rgba(17, 17, 17, 0.9);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overscroll-behavior: none;
-  }
-
-  p {
-    @apply text-pretty;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply text-balance;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      color: rgba(255, 255, 255, 0.9);
-    }
-  }
-
-  .dark .bg_pattern {
-    --bg-pattern-from: #031954;
-    --bg-pattern-to: #030712;
-  }
-
+<style>
   .bg_pattern {
     --bg-pattern-from: #93c5fd;
     --bg-pattern-to: #e5e5f7;
@@ -113,29 +74,15 @@ const { currentLocale } = Astro
     mask-position: bottom;
 
     background-color: var(--bg-pattern-to);
-    opacity: 0.6;
     background-image: radial-gradient(
-      var(--bg-pattern-from) 1.4000000000000001px,
-      var(--bg-pattern-to) 1.4000000000000001px
+      var(--bg-pattern-from) 1.4px,
+      var(--bg-pattern-to) 1.4px
     );
     background-size: 28px 28px;
   }
 
-  @supports (animation-timeline: view(block)) {
-    .animate-in-view {
-      animation: in-view forwards;
-      animation-timeline: view(block);
-      animation-range: entry 30% cover 35%;
-
-      opacity: 0;
-      transform: translateY(0.5rem) scale(0.8);
-    }
-
-    @keyframes in-view {
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
+  .dark .bg_pattern {
+    --bg-pattern-from: #031954;
+    --bg-pattern-to: #030712;
   }
 </style>
