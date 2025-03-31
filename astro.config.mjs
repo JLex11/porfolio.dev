@@ -9,17 +9,15 @@ import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [robotsTxt(), compressor({ brotli: true })],
-  site: 'https://alexander-porfolio-dev.vercel.app/',
-
-  i18n: {
-      defaultLocale: 'es',
-      locales: ['es', 'en'],
-  },
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
-  output: 'server',
-  adapter: vercel(),
+	integrations: [robotsTxt(), compressor({ brotli: true })],
+	site: 'https://alexander-porfolio-dev.vercel.app/',
+	i18n: {
+		defaultLocale: 'es',
+		locales: ['es', 'en'],
+	},
+	vite: {
+		plugins: [tailwindcss()],
+	},
+	output: 'server',
+	adapter: vercel(),
 })

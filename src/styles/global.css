@@ -28,3 +28,16 @@
     }
   }
 }
+
+@utility background-radial-light {
+  --light-bg-from: rgba(217, 216, 255, 0.5);
+  --light-bg-to: rgba(255, 255, 255, 0.9);
+  --dark-bg-from: rgba(120, 119, 198, 0.3);
+  --dark-bg-to: rgba(255, 255, 255, 0);
+  --radial-ellipse-size: 80% 80%;
+  --radial-ellipse-position: 50% -20%;
+  
+  @apply absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+            bg-[radial-gradient(ellipse_var(--radial-ellipse-size)_at_var(--radial-ellipse-position),var(--light-bg-from),var(--light-bg-to))]
+            dark:bg-[radial-gradient(ellipse_var(--radial-ellipse-size)_at_var(--radial-ellipse-position),var(--dark-bg-from),var(--dark-bg-to))];
+}

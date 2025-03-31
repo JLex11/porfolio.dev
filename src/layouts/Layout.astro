@@ -21,7 +21,6 @@ let isDark = false
 if (Astro.cookies.has('isDark')) {
   const value = Astro.cookies.get('isDark')?.value
   isDark = value === 'true'
-  console.log('isDark', isDark)
 }
 ---
 
@@ -52,12 +51,7 @@ if (Astro.cookies.has('isDark')) {
   <body
     class='relative text-neutral-900 dark:text-neutral-200 flex flex-col min-h-screen overscroll-none [&>p]:leading-7 [&>p]:text-base [&>p]:text-pretty [&:where(h1,h2,h3,h4,h5,h6)]:text-balance'
   >
-    <div
-      class='absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
-    >
-    </div>
+    <div class='background-radial-light'></div>
     <div class='bg_pattern z-[-1] w-full h-screen absolute top-0 left-0'></div>
     <Header />
     <slot />

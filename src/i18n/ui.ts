@@ -27,7 +27,8 @@ export const ui = {
 		// hero
 		'hero.hiring.badge': 'Disponible para trabajar',
 		'hero.title': 'Hey, soy Alexander',
-		'hero.text': '+2 años de experiencia. **Desarrollador de Software y Entusiasta de la Programación** de Medellín, Colombia. Especializado en el desarrollo de aplicaciones web.',
+		'hero.text':
+			'+2 años de experiencia. **Desarrollador de Software y Entusiasta de la Programación** de Medellín, Colombia. Especializado en el desarrollo de aplicaciones web.',
 		'hero.contact': 'Contáctame',
 		'hero.linkedin': 'LinkedIn',
 
@@ -86,7 +87,8 @@ export const ui = {
 		// hero
 		'hero.hiring.badge': 'Available for work',
 		'hero.title': "Hey, I'm Alexander",
-		'hero.text': '+2 years of experience. **Software Developer and Programming Enthusiast** from Medellin, Colombia. Specialized in web application development.',
+		'hero.text':
+			'+2 years of experience. **Software Developer and Programming Enthusiast** from Medellin, Colombia. Specialized in web application development.',
 		'hero.contact': 'Contact me',
 		'hero.linkedin': 'LinkedIn',
 
@@ -120,7 +122,7 @@ export const ui = {
 		'section.about.description.paragraph2':
 			'Some of my strengths include **relentless perseverance to overcome difficult moments and continue growing both personally and professionally**. One of my achievements that I am proud of is fostering the **learning and best practices** of development among my colleagues in my last job.',
 		'section.about.description.paragraph3':
-			'I love facing complex challenges and providing solutions **creatively and innovatively**. I am always looking to improve my skills, keep myself updated with the latest trends and best practices. I stand out for my focus on **teamwork**, the quality and commitment to the project\'s objectives. I am constantly challenged, but I also value teamwork. I am a strong believer in collaboration and leveraging collective strengths to solve problems efficiently.',
+			"I love facing complex challenges and providing solutions **creatively and innovatively**. I am always looking to improve my skills, keep myself updated with the latest trends and best practices. I stand out for my focus on **teamwork**, the quality and commitment to the project's objectives. I am constantly challenged, but I also value teamwork. I am a strong believer in collaboration and leveraging collective strengths to solve problems efficiently.",
 
 		// footer
 		'footer.about.title': 'About me',
