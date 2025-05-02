@@ -14,8 +14,8 @@
   @supports (animation-timeline: view(block)) {
     .animate-in-view {
       opacity: 0;
-      transform: translateY(0.5rem) scale(0.95);
-      animation: in-view forwards;
+      transform: translateY(0.5rem) scale(0.55);
+      animation: in-view forwards ease-in-out;
       animation-timeline: view(block);
       animation-range: entry 30% cover 35%;
     }
