@@ -1,4 +1,3 @@
-import compressor from 'astro-compressor'
 import { defineConfig } from 'astro/config'
 
 import robotsTxt from 'astro-robots-txt'
@@ -9,11 +8,12 @@ import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [robotsTxt(), compressor({ brotli: true })],
+	integrations: [robotsTxt()],
 	site: 'https://alexander-porfolio-dev.vercel.app/',
 	i18n: {
 		defaultLocale: 'es',
 		locales: ['es', 'en'],
+		redirectToDefaultLocale: false,
 	},
 	vite: {
 		plugins: [tailwindcss()],
