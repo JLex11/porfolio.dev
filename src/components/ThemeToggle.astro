@@ -28,10 +28,7 @@ const THEMES = [
 ---
 
 <div class='relative ml-1 mr-1'>
-  <button
-    id='theme-toggle-btn'
-    class='appearance-none border-none flex hover:scale-125 transition'
-  >
+  <button id='theme-toggle-btn' class='appearance-none border-none flex hover:scale-125 transition'>
     <span class='sr-only'>{t('nav.theme-toggle.label')}</span>
     {
       THEMES.map(({ icon: Icon, id }) => (
@@ -90,51 +87,36 @@ const THEMES = [
 
 <script>
   function startViewTransition(callback: (...args: any[]) => void) {
-    if (document.startViewTransition)
-      document.startViewTransition(async () => callback())
+    if (document.startViewTransition) document.startViewTransition(async () => callback())
     callback()
   }
 
   const getThemePreference = () => {
     if (localStorage) return localStorage.getItem('theme') || 'system'
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
   const updateIcon = (themePreference: string) => {
-    const icons = document.querySelectorAll(
-      '.theme-toggle-icon'
-    ) as NodeListOf<HTMLElement>
+    const icons = document.querySelectorAll('.theme-toggle-icon') as NodeListOf<HTMLElement>
     icons.forEach(element => {
       element.style.opacity = element.id === themePreference ? '1' : '0'
     })
   }
 
-  const updateTheme = (
-    matchMedia: MediaQueryList,
-    removeListener: (() => void) | null
-  ) => {
+  const updateTheme = (matchMedia: MediaQueryList, removeListener: (() => void) | null) => {
     if (removeListener != null) removeListener()
 
-    matchMedia.addEventListener('change', () =>
-      updateTheme(matchMedia, removeListener)
-    )
+    matchMedia.addEventListener('change', () => updateTheme(matchMedia, removeListener))
     removeListener = () => {
-      matchMedia.removeEventListener('change', () =>
-        updateTheme(matchMedia, removeListener)
-      )
+      matchMedia.removeEventListener('change', () => updateTheme(matchMedia, removeListener))
     }
 
     const themePreference = getThemePreference()
-    const isDark =
-      themePreference === 'dark' ||
-      (themePreference === 'system' && matchMedia.matches)
+    const isDark = themePreference === 'dark' || (themePreference === 'system' && matchMedia.matches)
 
     startViewTransition(() => {
       updateIcon(themePreference)
-      document.cookie = `isDark=${isDark};`
       document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
     })
   }
@@ -150,13 +132,11 @@ const THEMES = [
       themesMenu.classList.remove('open')
     })
 
-    document
-      .getElementById('theme-toggle-btn')!
-      .addEventListener('click', e => {
-        e.stopPropagation()
-        const isClosed = !themesMenu.classList.contains('open')
-        themesMenu.classList[isClosed ? 'add' : 'remove']('open')
-      })
+    document.getElementById('theme-toggle-btn')!.addEventListener('click', e => {
+      e.stopPropagation()
+      const isClosed = !themesMenu.classList.contains('open')
+      themesMenu.classList[isClosed ? 'add' : 'remove']('open')
+    })
 
     document.querySelectorAll('.themes-menu-option').forEach(element => {
       element.addEventListener('click', e => {

@@ -15,17 +15,10 @@ interface Props {
 
 const { description, title } = Astro.props
 const { currentLocale } = Astro
-
-let isDark = false
-
-if (Astro.cookies.has('isDark')) {
-  const value = Astro.cookies.get('isDark')?.value
-  isDark = value === 'true'
-}
 ---
 
 <!doctype html>
-<html lang={currentLocale} class:list={[isDark && 'dark']} class='font-onest scroll-smooth motion-reduce:scroll-auto'>
+<html lang={currentLocale} class='font-onest scroll-smooth motion-reduce:scroll-auto'>
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
@@ -34,8 +27,25 @@ if (Astro.cookies.has('isDark')) {
     <meta name='generator' content={Astro.generator} />
     <meta property='og:image' content='/porfolio.webp' />
     <link rel='preload' as='font' type='font/woff2' href={onestvariableWoff2} crossorigin />
-    <ClientRouter />
     <title>{title}</title>
+    <script is:inline>
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme')
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      }
+      const isDark = getThemePreference() === 'dark'
+      document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+
+      if (typeof localStorage !== 'undefined') {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains('dark')
+          localStorage.setItem('theme', isDark ? 'dark' : 'light')
+        })
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+      }
+    </script>
   </head>
 
   <body
@@ -57,16 +67,24 @@ if (Astro.cookies.has('isDark')) {
     mask-repeat: no-repeat;
     mask-position: bottom;
 
+    background-position: center center;
     background-color: var(--bg-pattern-to);
     background-image: radial-gradient(var(--bg-pattern-from) 1.4px, var(--bg-pattern-to) 1.4px);
     background-size: 28px 28px;
 
-    transform: translateY(-100%);
-    animation: zoom-out-background 0.7s ease-in-out forwards;
+    animation: zoom-out-background 0.5s ease-in-out;
+    @staring-style {
+      background-size: 120px 120px;
+      opacity: 0.5;
+    }
   }
 
   .dark .bg_pattern {
     --bg-pattern-from: #031954;
     --bg-pattern-to: #030712;
+  }
+
+  @view-transition {
+    navigation: auto;
   }
 </style>
