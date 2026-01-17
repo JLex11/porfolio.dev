@@ -1,12 +1,13 @@
 ---
-import { Image } from 'astro:assets'
 import gabyImg from '@/assets/references/mariag.webp'
+import { Image } from 'astro:assets'
 
 const REFERENCES = [
   {
     name: 'Gabriela Acosta',
     picture: gabyImg,
     relation: 'Team manager',
+    linkedin: 'https://www.linkedin.com/in/acostavmariag/',
     company: {
       name: 'Talent.com',
       link: 'https://talent.com',
@@ -18,35 +19,24 @@ const REFERENCES = [
 
 <ul>
   {
-    REFERENCES.map(({ name, picture, relation, company, text }) => (
+    REFERENCES.map(({ name, picture, relation, company, linkedin, text }) => (
       <li>
         <article class='animate-in-view flex flex-col gap-2 border text-black dark:text-white dark:border-gray-800 border-black/20 bg-black/5 p-4 rounded dark:bg-white/5 w-fit'>
           <header class='flex gap-2 items-start'>
-            <Image
-              src={picture}
-              alt={name}
-              width={56}
-              height={56}
-              class='size-14 rounded-full aspect-square'
-              decoding='async'
-              loading='lazy'
-            />
+            <Image src={picture} alt={name} width={56} height={56} class='size-14 rounded-full aspect-square' decoding='async' loading='lazy' />
             <div class='flex flex-col'>
-              <h3 class='text-lg font-bold'>{name}</h3>
+              <a href={linkedin} rel='noreferrer' target='_blank' class='hover:underline'>
+                <h3 class='text-lg font-bold'>{name}</h3>
+              </a>
               <span class='text-base opacity-80'>
                 {relation} at{' '}
-                <a
-                  href={company.link}
-                  rel='noreferrer'
-                  target='_blank'
-                  class='hover:underline font-bold text-blue-500'
-                >
+                <a href={company.link} rel='noreferrer' target='_blank' class='hover:underline font-bold text-blue-500'>
                   {company.name}
                 </a>
               </span>
             </div>
           </header>
-          <p class='opacity-70 max-w-[40ch] text-balance'>{text}</p>
+          <p class='opacity-70 max-w-[60ch] text-balance'>{text}</p>
         </article>
       </li>
     ))
