@@ -32,36 +32,30 @@ const navItems = [
 ]
 ---
 
-<header
-  class='fixed top-8 z-50 flex items-center justify-center w-full mx-auto mt-0'
->
-  <nav
-    class='flex px-3 text-sm font-medium gap-3 rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-9'
-  >
-    {
-      navItems.map(link => (
-        <a
-          nav-item-link
-          class='relative px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 hidden md:block'
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
-    <ThemeToggle />
-    <LanguajePicker />
-  </nav>
+<header class='fixed z-50 w-full mx-auto'>
+  <div class='flex items-center justify-center mt-10'>
+    <nav class='flex px-3 text-sm font-medium gap-3 rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-9'>
+      {
+        navItems.map(link => (
+          <a
+            nav-item-link
+            class='relative px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400 hidden md:block'
+            aria-label={link.label}
+            href={link.url}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+      <ThemeToggle />
+      <LanguajePicker />
+    </nav>
+  </div>
 </header>
 
 <script>
-  const sections = document.querySelectorAll(
-    'section[data-observable]'
-  ) as NodeListOf<HTMLElement>
-  const navItems = document.querySelectorAll(
-    'header nav a[nav-item-link]'
-  ) as NodeListOf<HTMLElement>
+  const sections = document.querySelectorAll('section[data-observable]') as NodeListOf<HTMLElement>
+  const navItems = document.querySelectorAll('header nav a[nav-item-link]') as NodeListOf<HTMLElement>
 
   const callback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach(entry => {
@@ -85,6 +79,15 @@ const navItems = [
 
 <style is:global>
   header {
+    animation: slide-to-bottom 0.5s ease-in-out;
+
+    @staring-style {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  header > div {
     animation: header-fixed 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 300px;
@@ -92,19 +95,18 @@ const navItems = [
 
   @keyframes header-fixed {
     to {
-      top: 0.25rem;
+      transform: translateY(-1.5rem);
     }
   }
 
-  header nav {
+  header > div nav {
     --nav-bg: rgb(255 255 255 / 0.7);
-    --shadow-lg: 0 10px 15px -3px rgba(4, 3, 3, 0.1),
-      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(4, 3, 3, 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --blur-md: 10px;
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 200px;
-    will-change: backdrop-filter, box-shadow, background-color;
+    will-change: backdrop-filter;
   }
 
   @keyframes nav-shadown {
@@ -116,11 +118,11 @@ const navItems = [
     }
   }
 
-  .dark header nav {
+  .dark header > div nav {
     --nav-bg: rgb(31 41 55 / 0.8);
   }
 
-  header nav a[nav-item-link][data-active='true'] {
+  header > div nav a[nav-item-link][data-active='true'] {
     color: var(--color-yellow-500);
     display: block;
   }

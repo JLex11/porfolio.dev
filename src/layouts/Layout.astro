@@ -25,11 +25,7 @@ if (Astro.cookies.has('isDark')) {
 ---
 
 <!doctype html>
-<html
-  lang={currentLocale}
-  class:list={[isDark && 'dark']}
-  class='font-onest scroll-smooth motion-reduce:scroll-auto'
->
+<html lang={currentLocale} class:list={[isDark && 'dark']} class='font-onest scroll-smooth motion-reduce:scroll-auto'>
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
@@ -37,13 +33,7 @@ if (Astro.cookies.has('isDark')) {
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <meta property='og:image' content='/porfolio.webp' />
-    <link
-      rel='preload'
-      as='font'
-      type='font/woff2'
-      href={onestvariableWoff2}
-      crossorigin
-    />
+    <link rel='preload' as='font' type='font/woff2' href={onestvariableWoff2} crossorigin />
     <ClientRouter />
     <title>{title}</title>
   </head>
@@ -68,11 +58,11 @@ if (Astro.cookies.has('isDark')) {
     mask-position: bottom;
 
     background-color: var(--bg-pattern-to);
-    background-image: radial-gradient(
-      var(--bg-pattern-from) 1.4px,
-      var(--bg-pattern-to) 1.4px
-    );
+    background-image: radial-gradient(var(--bg-pattern-from) 1.4px, var(--bg-pattern-to) 1.4px);
     background-size: 28px 28px;
+
+    transform: translateY(-100%);
+    animation: zoom-out-background 0.7s ease-in-out forwards;
   }
 
   .dark .bg_pattern {
