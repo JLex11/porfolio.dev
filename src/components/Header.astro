@@ -32,7 +32,7 @@ const navItems = [
 ]
 ---
 
-<header class='fixed z-50 w-full mx-auto'>
+<header class='fixed z-50 w-full mx-auto main-header'>
   <div class='flex items-center justify-center mt-10'>
     <nav class='flex px-3 text-sm font-medium gap-3 rounded-full text-gray-600 dark:text-gray-200 justify-center items-center min-h-9'>
       {
@@ -78,7 +78,7 @@ const navItems = [
 </script>
 
 <style is:global>
-  header {
+  header.main-header {
     animation: slide-to-bottom 0.5s ease-in-out;
 
     @staring-style {
@@ -87,7 +87,7 @@ const navItems = [
     }
   }
 
-  header > div {
+  header.main-header > div {
     animation: header-fixed 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 300px;
@@ -99,10 +99,11 @@ const navItems = [
     }
   }
 
-  header > div nav {
+  header.main-header > div nav {
     --nav-bg: rgb(255 255 255 / 0.7);
     --shadow-lg: 0 10px 15px -3px rgba(4, 3, 3, 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --blur-md: 10px;
+    --saturate: 5;
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 200px;
@@ -112,17 +113,18 @@ const navItems = [
   @keyframes nav-shadown {
     to {
       box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(var(--blur-md)) saturate(5);
+      backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate));
       background-color: var(--nav-bg);
       gap: 0;
     }
   }
 
-  .dark header > div nav {
+  .dark header.main-header > div nav {
     --nav-bg: rgb(31 41 55 / 0.8);
+    --saturate: 6;
   }
 
-  header > div nav a[nav-item-link][data-active='true'] {
+  header.main-header > div nav a[nav-item-link][data-active='true'] {
     color: var(--color-yellow-500);
     display: block;
   }

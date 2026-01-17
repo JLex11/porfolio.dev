@@ -22,8 +22,17 @@ const REFERENCES = [
     REFERENCES.map(({ name, picture, relation, company, linkedin, text }) => (
       <li>
         <article class='animate-in-view flex flex-col gap-2 border text-black dark:text-white dark:border-gray-800 border-black/20 bg-black/5 p-4 rounded dark:bg-white/5 w-fit'>
-          <header class='flex gap-2 items-start'>
-            <Image src={picture} alt={name} width={56} height={56} class='size-14 rounded-full aspect-square' decoding='async' loading='lazy' />
+          <header class='flex gap-2 items-center'>
+            <Image
+              src={picture}
+              alt={name}
+              width={56}
+              height={56}
+              format='avif'
+              class='size-14 rounded-full aspect-square'
+              decoding='async'
+              loading='lazy'
+            />
             <div class='flex flex-col'>
               <a href={linkedin} rel='noreferrer' target='_blank' class='hover:underline'>
                 <h3 class='text-lg font-bold'>{name}</h3>
@@ -36,7 +45,7 @@ const REFERENCES = [
               </span>
             </div>
           </header>
-          <p class='opacity-70 max-w-[60ch] text-balance'>{text}</p>
+          <p class='opacity-70 max-w-[50ch] text-balance'>{text}</p>
         </article>
       </li>
     ))
