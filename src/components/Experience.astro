@@ -1,27 +1,64 @@
 ---
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils'
-import ExperienceItem from './ExperienceItem.astro'
 import { processHighlightedText } from '@/utils/processHighlightedText'
+import ExperienceItem from './ExperienceItem.astro'
+
+import gabyImg from '@/assets/references/mariag.webp'
+import type { ImageMetadata } from 'astro'
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
 
-const EXPERIENCIE = [
+interface Reference {
+  name: string
+  picture: ImageMetadata
+  relation: string
+  linkedin: string
+  text: string
+}
+
+interface Experience {
+  date: string
+  title: string
+  company: string
+  companyLink?: string
+  description: string
+  references: Reference[]
+}
+
+const EXPERIENCE: Experience[] = [
   {
     date: t('section.experience1.date'),
     title: t('section.experience1.title'),
     company: t('section.experience1.company'),
+    companyLink: 'https://talent.com',
     description: processHighlightedText(t('section.experience1.description')),
+    references: [
+      {
+        name: 'Gabriela Acosta',
+        picture: gabyImg,
+        relation: t('section.experience1.reference1.relation'),
+        linkedin: 'https://www.linkedin.com/in/acostavmariag/',
+        text: t('section.experience1.reference1.text'),
+      },
+      {
+        name: 'Gabriela Acosta',
+        picture: gabyImg,
+        relation: t('section.experience1.reference1.relation'),
+        linkedin: 'https://www.linkedin.com/in/acostavmariag/',
+        text: t('section.experience1.reference1.text'),
+      },
+    ],
   },
 ]
 ---
 
 <ol class='relative'>
   {
-    EXPERIENCIE.map(experiencie => (
+    EXPERIENCE.map(experience => (
       <li class='animate-in-view'>
-        <ExperienceItem {...experiencie} />
+        <ExperienceItem {...experience} />
       </li>
     ))
   }

@@ -39,8 +39,9 @@ export const ui = {
 		'section.experience1.company': 'Talent.com',
 		'section.experience1.description':
 			'**Optimicé** la gestión de datos para ofertas de trabajo patrocinadas, logrando una mejora significativa en el **rendimiento** de los scripts de extracción. Implementé JavaScript avanzado y técnicas **eficientes** de PHP, reduciendo los tiempos de ejecución del código. Además, promoví las **mejores prácticas de desarrollo**, haciendo un código más **limpio y mantenible**. También disminuí los costos de computación en la nube.',
-
-		'section.references.title': 'Referencias',
+		'section.experience1.reference1.relation': 'Team manager',
+		'section.experience1.reference1.text':
+			'Alexander es un programador con habilidades técnicas sólidas, un desempeño impecable y a nivel de resolución de problemas es excelente. además, alexander es una persona íntegra, con valores éticos y morales, responsable y amigable. sin duda alguna lo recomiendo para cualquier equipo de trabajo donde pueda ser valorado y respetado.',
 
 		'section.projects.title': 'Proyectos',
 		// one-anime
@@ -99,8 +100,9 @@ export const ui = {
 		'section.experience1.company': 'Talent.com',
 		'section.experience1.description':
 			'I **optimized** data management for sponsored job postings, achieving a significant improvement in the **performance** of the extraction scripts. I implemented advanced JavaScript and **efficient** PHP techniques, reducing code execution times. Furthermore, I promoted **best development practices**, making the code **cleaner and more maintainable**. I also decreased cloud computing costs.',
-
-		'section.references.title': 'References',
+		'section.experience1.reference1.relation': 'Team manager',
+		'section.experience1.reference1.text':
+			'Alexander is a programmer with solid technical skills, impeccable performance, and excellent problem-solving abilities. In addition, Alexander is a person of integrity, with ethical and moral values, responsible and friendly. I definitely recommend him for any work team where he can be valued and respected.',
 
 		'section.projects.title': 'Projects',
 		// one-anime

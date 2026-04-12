@@ -1,62 +1,82 @@
 ---
-import LinkInline from './LinkInline.astro'
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+
+interface Reference {
+  name: string
+  picture: ImageMetadata
+  relation: string
+  linkedin: string
+  text: string
+}
 
 interface Props {
   title: string
   company: string
+  companyLink?: string
   description: string
-  link?: string
   date: string
+  references?: Reference[]
 }
 
-const { title, company, description, link, date } = Astro.props
+const { title, company, companyLink, description, date, references = [] } = Astro.props
 ---
 
-<div
-  class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]"
+<article
+  class="relative mx-12 pb-12 before:absolute before:-left-8.75 before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-['']"
 >
-  <div class='relative pb-12 md:col-span-2'>
-    <div class='sticky top-0'>
-      <span class='text-yellow-400 -left-[42px] absolute rounded-full text-5xl'
-        >&bull;</span
-      >
+  <header class='relative pb-8'>
+    <span class='text-yellow-400 -left-10.5 absolute rounded-full text-5xl leading-none'>&bull;</span>
+    <h3 class='text-xl font-bold text-yellow-400'>{title}</h3>
+    <h4 class='font-semibold text-xl text-gray-600 dark:text-white'>
+      {
+        companyLink ? (
+          <a href={companyLink} rel='noreferrer' target='_blank' class='hover:underline'>
+            {company}
+          </a>
+        ) : (
+          company
+        )
+      }
+    </h4>
+    <time class='p-0 m-0 text-sm text-gray-600/80 dark:text-white/80'>{date}</time>
+  </header>
 
-      <h3 class='text-xl font-bold text-yellow-400'>{title}</h3>
-      <h4 class='font-semibold text-xl text-gray-600 dark:text-white'>
-        {company}
-      </h4>
-      <time class='p-0 m-0 text-sm text-gray-600/80 dark:text-white/80'
-        >{date}</time
-      >
-    </div>
-  </div>
   <div
-    class='relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3 [&>span>strong]:text-blue-500'
+    class='relative flex flex-col gap-2 pb-8 text-gray-600 dark:text-gray-300 [&>span>strong]:text-blue-500'
   >
     <span set:html={description} />
-    {
-      link && (
-        <LinkInline href={link}>
-          Saber más{' '}
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='w-5 icon icon-tabler icon-tabler-chevron-right'
-            width='24'
-            height='24'
-            viewBox='0 0 24 24'
-            stroke-width='2'
-            stroke='currentColor'
-            fill='none'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-          >
-            <>
-              <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-              <path d='M9 6l6 6l-6 6' />
-            </>
-          </svg>
-        </LinkInline>
-      )
-    }
   </div>
-</div>
+
+  {
+    references.length > 0 && (
+      <ul class='flex flex-wrap gap-4'>
+        {references.map(({ name, picture, relation, linkedin, text }, index) => (
+          <li class='animate-in-view-right flex-1 min-w-70 max-w-120' style={`--stagger: ${index}`}>
+            <article class='flex flex-col gap-2 h-full border text-black dark:text-white dark:border-gray-800 border-black/20 bg-black/5 dark:bg-white/5 p-4 rounded'>
+              <header class='flex gap-2 items-center'>
+                <Image
+                  src={picture}
+                  alt={name}
+                  width={56}
+                  height={56}
+                  format='avif'
+                  class='size-14 rounded-full aspect-square'
+                  decoding='async'
+                  loading='lazy'
+                />
+                <div class='flex flex-col'>
+                  <a href={linkedin} rel='noreferrer' target='_blank' class='hover:underline'>
+                    <h5 class='text-lg font-bold'>{name}</h5>
+                  </a>
+                  <span class='text-base opacity-80'>{relation}</span>
+                </div>
+              </header>
+              <p class='opacity-70 text-balance text-sm'>{text}</p>
+            </article>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</article>

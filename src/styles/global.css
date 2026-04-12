@@ -15,16 +15,32 @@
   @supports (animation-timeline: view(block)) {
     .animate-in-view {
       opacity: 0;
-      transform: translateY(0.5rem) scale(0.55);
-      animation: in-view forwards ease-in-out;
+      transform: translateY(3rem) scale(0.98);
+      animation: in-view forwards ease-out;
       animation-timeline: view(block);
-      animation-range: entry 30% cover 35%;
+      animation-range: entry 20% cover 40%;
+    }
+
+    .animate-in-view-right {
+      --stagger: 0;
+      opacity: 0;
+      transform: translateX(8rem) scale(0.95);
+      animation: in-view-right forwards ease-out;
+      animation-timeline: view(block);
+      animation-range: entry 30% cover calc(45% + var(--stagger) * 10%);
     }
 
     @keyframes in-view {
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes in-view-right {
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
       }
     }
 
