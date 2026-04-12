@@ -12,24 +12,23 @@ const { data } = Astro.props
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
 
-const totalLabel = t('section.github.total').replace(
-  '{count}',
-  data.totalCount.toLocaleString(currentLocale)
-)
+const totalLabel = t('section.github.total').replace('{count}', data.totalCount.toLocaleString(currentLocale))
 ---
 
-<div class='contrib-card group'>
-  <div class='contrib-card__chrome'>
-    <span class='contrib-card__dot contrib-card__dot--red'></span>
-    <span class='contrib-card__dot contrib-card__dot--yellow'></span>
-    <span class='contrib-card__dot contrib-card__dot--green'></span>
-    <span class='contrib-card__title'>@{data.username || 'github'}</span>
+<div
+  class='contrib-card group relative overflow-hidden rounded-[1.25rem] border border-white/55 bg-white/45 px-5 pt-4 pb-6 shadow-[0_10px_40px_-10px_rgba(59,130,246,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] [backdrop-filter:blur(18px)_saturate(1.3)] dark:border-slate-400/15 dark:bg-slate-900/45 dark:shadow-[0_10px_40px_-10px_rgba(59,130,246,0.20),inset_0_1px_0_rgba(255,255,255,0.05)]'
+>
+  <div class='mb-4 flex items-center gap-2 border-b border-slate-400/18 pb-3'>
+    <span class='ml-2 font-mono text-[0.8rem] text-gray-700/80 dark:text-slate-200/70'>@{data.username || 'github'}</span>
   </div>
 
-  <div class='contrib-card__meta'>
-    <p class='contrib-card__subtitle'>{t('section.github.subtitle')}</p>
-    {data.totalCount > 0 && <p class='contrib-card__total'>{totalLabel}</p>}
+  <div class='mb-4 flex flex-wrap items-baseline justify-between gap-4'>
+    <p class='text-[0.9rem] text-slate-600/90 dark:text-slate-300/85'>{t('section.github.subtitle')}</p>
+    {data.totalCount > 0 && <p class='text-[0.85rem] font-semibold text-blue-600 dark:text-blue-300'>{totalLabel}</p>}
   </div>
 
-  <ContributionsGrid weeks={data.weeks} class='contrib-grid--final' />
+  <ContributionsGrid
+    weeks={data.weeks}
+    class='h-auto w-full supports-[animation-timeline:view()]:opacity-0 supports-[animation-timeline:view()]:transform-[translateY(2rem)_scale(0.96)] supports-[animation-timeline:view()]:animate-[contrib-card-rise_ease-out_both] supports-[animation-timeline:view()]:[animation-timeline:view(block)] supports-[animation-timeline:view()]:animate-range-[entry_10%_cover_40%]'
+  />
 </div>
