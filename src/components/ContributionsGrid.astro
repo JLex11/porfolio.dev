@@ -1,0 +1,47 @@
+---
+import type { ContributionWeek } from '@/utils/fetchContributions'
+
+interface Props {
+  weeks: ContributionWeek[]
+  class?: string
+}
+
+const { weeks, class: className } = Astro.props
+
+const CELL = 12
+const GAP = 3
+const ROWS = 7
+const cols = weeks.length || 53
+const width = cols * (CELL + GAP) - GAP
+const height = ROWS * (CELL + GAP) - GAP
+---
+
+<svg
+  class:list={['contrib-grid', className]}
+  viewBox={`0 0 ${width} ${height}`}
+  width={width}
+  height={height}
+  preserveAspectRatio='xMidYMid meet'
+  aria-hidden='true'
+  role='presentation'
+>
+  {
+    weeks.map((week, wi) =>
+      Array.from({ length: ROWS }).map((_, di) => {
+        const day = week?.[di]
+        const level = day?.level ?? 0
+        return (
+          <rect
+            x={wi * (CELL + GAP)}
+            y={di * (CELL + GAP)}
+            width={CELL}
+            height={CELL}
+            rx={2.5}
+            ry={2.5}
+            class={`contrib-cell contrib-cell--l${level}`}
+          />
+        )
+      })
+    )
+  }
+</svg>

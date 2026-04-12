@@ -3,19 +3,24 @@ import Layout from '@/layouts/Layout.astro'
 
 import AboutMe from '@/components/AboutMe.astro'
 import Experience from '@/components/Experience.astro'
+import GithubContributions from '@/components/GithubContributions.astro'
 import Hero from '@/components/Hero.astro'
 import Projects from '@/components/Projects.astro'
 import SectionContainer from '@/components/SectionContainer.astro'
 
 import Briefcase from '@/components/icons/Briefcase.astro'
 import CodeIcon from '@/components/icons/Code.astro'
+import GitHubIcon from '@/components/icons/GitHub.astro'
 import ProfileCheck from '@/components/icons/ProfileCheck.astro'
 
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils'
+import { fetchContributions } from '@/utils/fetchContributions'
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
+
+const contributions = await fetchContributions('JLex11')
 ---
 
 <Layout title={t('seo.title')} description={t('seo.description')}>
@@ -31,6 +36,14 @@ const t = useTranslations(currentLocale)
         {t('section.experience.title')}
       </h2>
       <Experience />
+    </SectionContainer>
+
+    <SectionContainer id='github'>
+      <h2 class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'>
+        <GitHubIcon class='size-8' />
+        {t('section.github.title')}
+      </h2>
+      <GithubContributions data={contributions} />
     </SectionContainer>
 
     <SectionContainer id='proyectos'>

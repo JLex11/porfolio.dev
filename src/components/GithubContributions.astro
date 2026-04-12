@@ -1,0 +1,35 @@
+---
+import ContributionsGrid from '@/components/ContributionsGrid.astro'
+import type { ui } from '@/i18n/ui'
+import { useTranslations } from '@/i18n/utils'
+import type { ContributionsData } from '@/utils/fetchContributions'
+
+interface Props {
+  data: ContributionsData
+}
+
+const { data } = Astro.props
+const currentLocale = Astro.currentLocale as keyof typeof ui
+const t = useTranslations(currentLocale)
+
+const totalLabel = t('section.github.total').replace(
+  '{count}',
+  data.totalCount.toLocaleString(currentLocale)
+)
+---
+
+<div class='contrib-card group'>
+  <div class='contrib-card__chrome'>
+    <span class='contrib-card__dot contrib-card__dot--red'></span>
+    <span class='contrib-card__dot contrib-card__dot--yellow'></span>
+    <span class='contrib-card__dot contrib-card__dot--green'></span>
+    <span class='contrib-card__title'>@{data.username || 'github'}</span>
+  </div>
+
+  <div class='contrib-card__meta'>
+    <p class='contrib-card__subtitle'>{t('section.github.subtitle')}</p>
+    {data.totalCount > 0 && <p class='contrib-card__total'>{totalLabel}</p>}
+  </div>
+
+  <ContributionsGrid weeks={data.weeks} class='contrib-grid--final' />
+</div>
