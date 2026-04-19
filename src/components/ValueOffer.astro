@@ -1,0 +1,12 @@
+---
+import type { ui } from '@/i18n/ui'
+import { useTranslations } from '@/i18n/utils'
+import { processHighlightedText } from '@/utils/processHighlightedText'
+
+const t = useTranslations(Astro.currentLocale as keyof typeof ui)
+const description = processHighlightedText(t('section.value.description'))
+---
+
+<article class='animate-in-view rounded-2xl border border-black/10 bg-white/70 p-6 text-lg text-gray-700 shadow-sm shadow-black/5 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-gray-300'>
+  <p class='text-pretty leading-8 [&>strong]:font-semibold [&>strong]:text-yellow-600 dark:[&>strong]:text-yellow-100' set:html={description} />
+</article>

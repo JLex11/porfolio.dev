@@ -11,9 +11,9 @@ export const ui = {
 	es: {
 		// nav
 		'nav.experience': 'Experiencia',
-		'nav.github': 'GitHub',
 		'nav.projects': 'Proyectos',
 		'nav.about': 'Acerca de',
+		'nav.github': 'GitHub',
 		'nav.contact': 'Contacto',
 		'nav.theme-toggle.label': 'Elige el tema',
 		'nav.theme-toggle.dark': 'Oscuro',
@@ -21,25 +21,30 @@ export const ui = {
 		'nav.theme-toggle.system': 'Sistema',
 
 		// seo
-		'seo.title': 'Porfolio de Alexander - Desarrollador y Programador Web con 2 años de experiencia',
+		'seo.title': 'Portafolio de Alexander - Desarrollador de software full stack con 3+ años de experiencia',
 		'seo.description':
-			'Contrata a Alexander para crear tu aplicación web. Desarrollador Web. Especializado en crear aplicaciones únicas.',
+			'Desarrollador de software full stack en Medellín, Colombia. Enfocado en construir productos útiles, resolver problemas complejos y mejorar rendimiento.',
 
 		// hero
 		'hero.hiring.badge': 'Disponible para trabajar',
-		'hero.title': 'Hey, soy Alexander',
+		'hero.title': 'Desarrollador de software',
 		'hero.text':
-			'+2 años de experiencia. **Desarrollador de Software y Entusiasta de la Programación** de Medellín, Colombia. Especializado en el desarrollo de aplicaciones web.',
+			'Soy Alexander, **desarrollador de software full stack** de Medellín, Colombia, con **3+ años de experiencia** construyendo productos web y mejorando sistemas que necesitan rendir mejor.',
 		'hero.contact': 'Contáctame',
 		'hero.linkedin': 'LinkedIn',
 
 		// section
 		'section.experience.title': 'Experiencia laboral',
+		'section.experience2.title': 'Desarrollador de software full stack',
+		'section.experience2.date': 'Julio 2025 - Actualidad',
+		'section.experience2.company': 'LegalApp',
+		'section.experience2.description':
+			'He trabajado en la **mejora integral** de productos clave de LegalApp, con foco en **rendimiento, escalabilidad y experiencia de uso**. Optimicé cuellos de botella en aplicación y base de datos, reorganicé partes importantes de la lógica para hacer el código más sostenible y menos riesgoso de cambiar, y mejoré la sincronización móvil para reducir consumo de red y hacerla mucho más rápida incluso con mala señal. También desarrollé **flujos de importación en segundo plano** para facilitar la migración masiva de datos desde plataformas anteriores y participé en la simplificación de interfaces web y mobile para que el sistema fuera más claro, ligero y fácil de usar desde el primer momento.',
 		'section.experience1.title': 'Desarrollador web',
 		'section.experience1.date': 'Julio 2022 - Junio 2024',
 		'section.experience1.company': 'Talent.com',
 		'section.experience1.description':
-			'**Optimicé** la gestión de datos para ofertas de trabajo patrocinadas, logrando una mejora significativa en el **rendimiento** de los scripts de extracción. Implementé JavaScript avanzado y técnicas **eficientes** de PHP, reduciendo los tiempos de ejecución del código. Además, promoví las **mejores prácticas de desarrollo**, haciendo un código más **limpio y mantenible**. También disminuí los costos de computación en la nube.',
+			'Mejoré procesos de extracción de datos que antes eran **lentos, inestables y difíciles de mantener**, logrando que tareas que podían tardar horas pasaran a resolverse en minutos. También ayudé a ordenar mejor el código para que fuera **más confiable, fácil de actualizar y más eficiente en recursos**, lo que hacía mucho más rápido corregir errores o adaptar cambios. Además, colaboré de cerca con el equipo para resolver problemas complejos y mejorar la calidad general del desarrollo.',
 		'section.experience1.reference1.relation': 'Team manager',
 		'section.experience1.reference1.text':
 			'Alexander es un programador con habilidades técnicas sólidas, un desempeño impecable y a nivel de resolución de problemas es excelente. además, alexander es una persona íntegra, con valores éticos y morales, responsable y amigable. sin duda alguna lo recomiendo para cualquier equipo de trabajo donde pueda ser valorado y respetado.',
@@ -64,11 +69,14 @@ export const ui = {
 
 		'section.about.title': 'Sobre mí',
 		'section.about.description.paragraph1':
-			'Me llamo John Alexander Calle pero mis amigos me llaman Alex. Empecé en la programación hace 5 años. Desde entonces he ido aprendiendo más y más, enfrentando obstáculos y superándome a mí mismo.',
+			'Me gusta **entender bien los problemas** antes de resolverlos, dividirlos y avanzar con criterio. Cuando trabajo en algo nuevo, suelo hacer un plan e ir iterando hasta encontrar una solución sólida.',
 		'section.about.description.paragraph2':
-			'Algunos de mis puntos fuertes incluyen **la resiliencia para superar momentos difíciles y seguir creciendo tanto personal como profesionalmente**. Uno de mis logros que destaco fue fomentar el **aprendizaje y las buenas prácticas** de desarrollo entre mis compañeros en mi último empleo.',
+			'Valoro mucho **la claridad**, el aprendizaje constante y los equipos donde las ideas se comparten de verdad. Con el tiempo también entendí que no siempre gana la solución más compleja: casi siempre aporta más hacer algo simple, bien pensado y que todos puedan entender.',
 		'section.about.description.paragraph3':
-			'Me apasiona enfrentar desafíos complejos y brindar soluciones **creativas e innovadoras**. Siempre busco mejorar mis habilidades, mantenerme actualizado con las últimas tendencias y mejores prácticas. Destaco por mi enfoque en el **trabajo en equipo**, la calidad y el compromiso con los objetivos del proyecto. Me desafío constantemente, pero también valoro el trabajo en equipo. Creo firmemente en la colaboración y en aprovechar las fortalezas colectivas para resolver problemas de manera eficiente.',
+			'Disfruto especialmente cuando un problema queda bien resuelto o cuando llegamos a una buena solución trabajando en equipo.',
+		'section.value.title': 'Valor que aporto',
+		'section.value.description':
+			'Aporto **criterio técnico**, atención al detalle y una forma de trabajar enfocada en entender bien el problema, proponer una buena solución y convertirla en algo útil, mantenible y bien hecho.',
 
 		// footer
 		'footer.about.title': 'Sobre mí',
@@ -77,9 +85,9 @@ export const ui = {
 	en: {
 		// nav
 		'nav.experience': 'Experience',
-		'nav.github': 'GitHub',
 		'nav.projects': 'Projects',
 		'nav.about': 'About',
+		'nav.github': 'GitHub',
 		'nav.contact': 'Contact',
 		'nav.theme-toggle.label': 'Choose a theme',
 		'nav.theme-toggle.dark': 'Dark',
@@ -87,25 +95,30 @@ export const ui = {
 		'nav.theme-toggle.system': 'System',
 
 		// seo
-		'seo.title': "Alexander's Portfolio - Web Developer and Programmer with 2 years of experience",
+		'seo.title': "Alexander's Portfolio - Full stack software developer with 3+ years of experience",
 		'seo.description':
-			'Hire Alexander to create your web application. Web Developer. Specialized in creating unique applications.',
+			'Full stack software developer in Medellin, Colombia. Focused on building useful products, solving complex problems, and improving performance.',
 
 		// hero
 		'hero.hiring.badge': 'Available for work',
-		'hero.title': "Hey, I'm Alexander",
+		'hero.title': 'Software Developer',
 		'hero.text':
-			'+2 years of experience. **Software Developer and Programming Enthusiast** from Medellin, Colombia. Specialized in web application development.',
+			"I'm Alexander, a **full stack software developer** from Medellin, Colombia, with **3+ years of experience** building web products and improving systems that need to perform better.",
 		'hero.contact': 'Contact me',
 		'hero.linkedin': 'LinkedIn',
 
 		// section
 		'section.experience.title': 'Work Experience',
+		'section.experience2.title': 'Full stack software developer',
+		'section.experience2.date': 'July 2025 - Present',
+		'section.experience2.company': 'LegalApp',
+		'section.experience2.description':
+			"I have worked on the **overall improvement** of key LegalApp products, with a focus on **performance, scalability, and user experience**. I optimized bottlenecks in the application and database, reorganized important parts of the logic to make the codebase more sustainable and less risky to change, and improved mobile synchronization to reduce network usage and make it much faster even with poor signal. I also built **background import flows** to support large data migrations from previous platforms and helped simplify web and mobile interfaces so the system felt clearer, lighter, and easier to use from the start.",
 		'section.experience1.title': 'Web developer',
 		'section.experience1.date': 'July 2022 - June 2024',
 		'section.experience1.company': 'Talent.com',
 		'section.experience1.description':
-			'I **optimized** data management for sponsored job postings, achieving a significant improvement in the **performance** of the extraction scripts. I implemented advanced JavaScript and **efficient** PHP techniques, reducing code execution times. Furthermore, I promoted **best development practices**, making the code **cleaner and more maintainable**. I also decreased cloud computing costs.',
+			'I improved data extraction processes that used to be **slow, unstable, and hard to maintain**, turning tasks that could take hours into work that finished in minutes. I also helped reorganize the code so it became **more reliable, easier to update, and more efficient in its resource usage**, which made fixing errors or adapting changes much faster. In addition, I worked closely with the team to solve complex problems and improve the overall quality of development.',
 		'section.experience1.reference1.relation': 'Team manager',
 		'section.experience1.reference1.text':
 			'Alexander is a programmer with solid technical skills, impeccable performance, and excellent problem-solving abilities. In addition, Alexander is a person of integrity, with ethical and moral values, responsible and friendly. I definitely recommend him for any work team where he can be valued and respected.',
@@ -130,11 +143,14 @@ export const ui = {
 
 		'section.about.title': 'About me',
 		'section.about.description.paragraph1':
-			'My name is John Alexander Calle but my friends call me Alex. I started programming 5 years ago. Since then I have been learning more and more, facing obstacles and overcoming myself.',
+			'I like to **understand problems well** before solving them, break them down, and move forward with judgment. When I work on something new, I usually make a plan and iterate until I find a solid solution.',
 		'section.about.description.paragraph2':
-			'Some of my strengths include **relentless perseverance to overcome difficult moments and continue growing both personally and professionally**. One of my achievements that I am proud of is fostering the **learning and best practices** of development among my colleagues in my last job.',
+			'I value **clarity**, constant learning, and teams where ideas are genuinely shared. Over time I have also learned that the most complex solution is not always the best one: in most cases, it is more valuable to build something simple, well thought out, and easy for everyone to understand.',
 		'section.about.description.paragraph3':
-			"I love facing complex challenges and providing solutions **creatively and innovatively**. I am always looking to improve my skills, keep myself updated with the latest trends and best practices. I stand out for my focus on **teamwork**, the quality and commitment to the project's objectives. I am constantly challenged, but I also value teamwork. I am a strong believer in collaboration and leveraging collective strengths to solve problems efficiently.",
+			'I especially enjoy it when a problem ends up well solved or when we reach a good solution through teamwork.',
+		'section.value.title': 'Value I bring',
+		'section.value.description':
+			'I bring **technical judgment**, attention to detail, and a way of working focused on understanding the problem well, proposing a good solution, and turning it into something useful, maintainable, and well built.',
 
 		// footer
 		'footer.about.title': 'About me',

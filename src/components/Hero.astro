@@ -2,6 +2,7 @@
 import alexanderImg from '@/assets/alexander.avif'
 import Badge from '@/components/Badge.astro'
 import SocialPill from '@/components/SocialPill.astro'
+import GitHubIcon from '@/components/icons/GitHub.astro'
 import LinkedInIcon from '@/components/icons/LinkedIn.astro'
 import MailIcon from '@/components/icons/Mail.astro'
 import type { ui } from '@/i18n/ui'
@@ -45,13 +46,17 @@ const heroText = processHighlightedText(t('hero.text'))
     set:html={heroText}
   />
   <nav class='flex flex-wrap gap-4 mt-8'>
-    <SocialPill href='mailto:alex.calle.dev@gmail.com'>
+    <SocialPill href='mailto:alexcalle.paola@gmail.com'>
       <MailIcon class='size-4' />
       {t('hero.contact')}
     </SocialPill>
     <SocialPill href='https://www.linkedin.com/in/john-alexander-calle/'>
       <LinkedInIcon class='size-4' />
       {t('hero.linkedin')}
+    </SocialPill>
+    <SocialPill href='https://github.com/JLex11'>
+      <GitHubIcon class='size-4' />
+      {t('nav.github')}
     </SocialPill>
   </nav>
 </div>

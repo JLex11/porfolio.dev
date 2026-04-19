@@ -7,10 +7,12 @@ import GithubContributions from '@/components/GithubContributions.astro'
 import Hero from '@/components/Hero.astro'
 import Projects from '@/components/Projects.astro'
 import SectionContainer from '@/components/SectionContainer.astro'
+import ValueOffer from '@/components/ValueOffer.astro'
 
 import Briefcase from '@/components/icons/Briefcase.astro'
 import CodeIcon from '@/components/icons/Code.astro'
 import GitHubIcon from '@/components/icons/GitHub.astro'
+import People from '@/components/icons/People.astro'
 import ProfileCheck from '@/components/icons/ProfileCheck.astro'
 
 import type { ui } from '@/i18n/ui'
@@ -38,14 +40,6 @@ const contributions = await fetchContributions('JLex11')
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id='github'>
-      <h2 class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'>
-        <GitHubIcon class='size-8' />
-        {t('section.github.title')}
-      </h2>
-      <GithubContributions data={contributions} />
-    </SectionContainer>
-
     <SectionContainer id='proyectos'>
       <h2 class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'>
         <CodeIcon class='size-7' />
@@ -60,6 +54,22 @@ const contributions = await fetchContributions('JLex11')
         {t('section.about.title')}
       </h2>
       <AboutMe />
+    </SectionContainer>
+
+    <SectionContainer id='valor' observable={false}>
+      <h2 class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'>
+        <People class='size-8' />
+        {t('section.value.title')}
+      </h2>
+      <ValueOffer />
+    </SectionContainer>
+
+    <SectionContainer id='github'>
+      <h2 class='animate-in-view flex items-center mb-7 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white'>
+        <GitHubIcon class='size-8' />
+        {t('section.github.title')}
+      </h2>
+      <GithubContributions data={contributions} />
     </SectionContainer>
   </main>
 </Layout>
