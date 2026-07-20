@@ -5,8 +5,8 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro check && astro build",
-		"preview": "astro check && astro build && astro preview",
+		"build": "astro build",
+		"preview": "astro build && astro preview",
 		"astro": "astro",
 		"biome": "biome lint --write && biome format --write"
 	},

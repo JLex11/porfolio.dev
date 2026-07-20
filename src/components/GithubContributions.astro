@@ -2,15 +2,14 @@
 import ContributionsGrid from '@/components/ContributionsGrid.astro'
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils'
-import type { ContributionsData } from '@/utils/fetchContributions'
+import { fetchContributions } from '@/utils/fetchContributions'
 
-interface Props {
-  data: ContributionsData
-}
-
-const { data } = Astro.props
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
+
+const data = await fetchContributions('JLex11')
+
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400')
 
 const totalLabel = t('section.github.total').replace('{count}', data.totalCount.toLocaleString(currentLocale))
 ---

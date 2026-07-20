@@ -19,14 +19,32 @@ const EMPTY: ContributionsData = {
   fetchedAt: new Date(0).toISOString(),
 }
 
-const cache = new Map<string, Promise<ContributionsData>>()
+const TTL = 60 * 60 * 1000
+
+interface CacheEntry {
+  data: ContributionsData
+  timestamp: number
+}
+
+const cache = new Map<string, CacheEntry>()
+const pendingCache = new Map<string, Promise<ContributionsData>>()
 
 export function fetchContributions(username: string): Promise<ContributionsData> {
-  const cached = cache.get(username)
-  if (cached) return cached
-  const pending = load(username)
-  cache.set(username, pending)
-  return pending
+  const entry = cache.get(username)
+  if (entry && Date.now() - entry.timestamp < TTL) {
+    return Promise.resolve(entry.data)
+  }
+
+  const pending = pendingCache.get(username)
+  if (pending) return pending
+
+  const fresh = load(username).then((data) => {
+    cache.set(username, { data, timestamp: Date.now() })
+    pendingCache.delete(username)
+    return data
+  })
+  pendingCache.set(username, fresh)
+  return fresh
 }
 
 async function load(username: string): Promise<ContributionsData> {

@@ -17,12 +17,11 @@ import ProfileCheck from '@/components/icons/ProfileCheck.astro'
 
 import type { ui } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils'
-import { fetchContributions } from '@/utils/fetchContributions'
+
+export const prerender = true
 
 const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
-
-const contributions = await fetchContributions('JLex11')
 ---
 
 <Layout title={t('seo.title')} description={t('seo.description')}>
@@ -69,7 +68,17 @@ const contributions = await fetchContributions('JLex11')
         <GitHubIcon class='size-8' />
         {t('section.github.title')}
       </h2>
-      <GithubContributions data={contributions} />
+      <GithubContributions server:defer>
+        <div slot="fallback" class="contrib-card animate-pulse rounded-[1.25rem] border border-white/55 bg-white/45 px-5 pt-4 pb-6 shadow-[0_10px_40px_-10px_rgba(59,130,246,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] [backdrop-filter:blur(18px)_saturate(1.3)] dark:border-slate-400/15 dark:bg-slate-900/45 dark:shadow-[0_10px_40px_-10px_rgba(59,130,246,0.20),inset_0_1px_0_rgba(255,255,255,0.05)]">
+          <div class="mb-4 flex items-center gap-2 border-b border-slate-400/18 pb-3">
+            <span class="ml-2 font-mono text-[0.8rem] text-gray-700/80 dark:text-slate-200/70">@JLex11</span>
+          </div>
+          <div class="mb-4">
+            <p class="text-[0.9rem] text-slate-600/90 dark:text-slate-300/85">Cargando contribuciones...</p>
+          </div>
+          <div class="h-[128px] w-full rounded-lg bg-slate-200/60 dark:bg-slate-700/60" />
+        </div>
+      </GithubContributions>
     </SectionContainer>
   </main>
 </Layout>
