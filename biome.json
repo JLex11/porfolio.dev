@@ -1,12 +1,20 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.5.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.10/schema.json",
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
 		"useIgnoreFile": true
 	},
 	"files": {
-		"includes": ["src/**/*", "*.json", "*.mjs", "*.ts", "!dist", "!.astro", "!.vercel"]
+		"includes": [
+			"src/**/*",
+			"*.json",
+			"*.mjs",
+			"*.ts",
+			"!dist",
+			"!.astro",
+			"!.vercel"
+		]
 	},
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"linter": {

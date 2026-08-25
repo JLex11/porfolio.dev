@@ -2,22 +2,15 @@
 import type { ContributionWeek, MonthStat } from '@/utils/fetchContributions'
 
 interface Props {
-  weeks: ContributionWeek[]
-  months: MonthStat[]
-  monthNames: string[]
-  currentMonth: number
-  year: number
-  class?: string
+	weeks: ContributionWeek[]
+	months: MonthStat[]
+	monthNames: string[]
+	currentMonth: number
+	year: number
+	class?: string
 }
 
-const {
-  weeks,
-  months,
-  monthNames,
-  currentMonth,
-  year,
-  class: className,
-} = Astro.props
+const { weeks, months, monthNames, currentMonth, year, class: className } = Astro.props
 
 const CELL = 12
 const GAP = 3

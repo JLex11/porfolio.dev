@@ -4,7 +4,7 @@ import type { TAGS } from '@/constants.astro'
 type Tag = (typeof TAGS)[keyof typeof TAGS]
 
 interface Props {
-  tags: Tag[]
+	tags: Tag[]
 }
 
 const { tags } = Astro.props

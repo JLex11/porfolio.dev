@@ -119,7 +119,7 @@ export const ui = {
 		'section.experience2.date': 'July 2025 - Present',
 		'section.experience2.company': 'LegalApp',
 		'section.experience2.description':
-			"I have worked on the **overall improvement** of key LegalApp products, with a focus on **performance, scalability, and user experience**. I optimized bottlenecks in the application and database, reorganized important parts of the logic to make the codebase more sustainable and less risky to change, and improved mobile synchronization to reduce network usage and make it much faster even with poor signal. I also built **background import flows** to support large data migrations from previous platforms and helped simplify web and mobile interfaces so the system felt clearer, lighter, and easier to use from the start.",
+			'I have worked on the **overall improvement** of key LegalApp products, with a focus on **performance, scalability, and user experience**. I optimized bottlenecks in the application and database, reorganized important parts of the logic to make the codebase more sustainable and less risky to change, and improved mobile synchronization to reduce network usage and make it much faster even with poor signal. I also built **background import flows** to support large data migrations from previous platforms and helped simplify web and mobile interfaces so the system felt clearer, lighter, and easier to use from the start.',
 		'section.experience1.title': 'Web developer',
 		'section.experience1.date': 'July 2022 - June 2024',
 		'section.experience1.company': 'Talent.com',

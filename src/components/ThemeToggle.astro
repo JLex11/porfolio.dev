@@ -9,21 +9,21 @@ const currentLocale = Astro.currentLocale as keyof typeof ui
 const t = useTranslations(currentLocale)
 
 const THEMES = [
-  {
-    id: 'light',
-    label: t('nav.theme-toggle.light'),
-    icon: SunIcon,
-  },
-  {
-    id: 'dark',
-    label: t('nav.theme-toggle.dark'),
-    icon: MoonIcon,
-  },
-  {
-    id: 'system',
-    label: t('nav.theme-toggle.system'),
-    icon: SystemIcon,
-  },
+	{
+		id: 'light',
+		label: t('nav.theme-toggle.light'),
+		icon: SunIcon,
+	},
+	{
+		id: 'dark',
+		label: t('nav.theme-toggle.dark'),
+		icon: MoonIcon,
+	},
+	{
+		id: 'system',
+		label: t('nav.theme-toggle.system'),
+		icon: SystemIcon,
+	},
 ]
 ---
 
