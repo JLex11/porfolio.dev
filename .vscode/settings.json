@@ -2,9 +2,7 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"editor.defaultFormatter": "biomejs.biome",
 	"editor.codeActionsOnSave": {
-		"quickfix.biome": "always",
-		"source.organizeImports.biome": "never",
-		"source.organizeImports": "always"
+		"source.fixAll.biome": "explicit"
 	},
 	"files.associations": {
     "*.css": "tailwindcss"

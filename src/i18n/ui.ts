@@ -50,8 +50,14 @@ export const ui = {
 			'Alexander es un programador con habilidades técnicas sólidas, un desempeño impecable y a nivel de resolución de problemas es excelente. además, alexander es una persona íntegra, con valores éticos y morales, responsable y amigable. sin duda alguna lo recomiendo para cualquier equipo de trabajo donde pueda ser valorado y respetado.',
 
 		'section.github.title': 'Actividad en GitHub',
-		'section.github.subtitle': 'Contribuciones del último año',
-		'section.github.total': '{count} contribuciones',
+		'section.github.subtitle': 'Actividad de {year} (acumulada mes a mes)',
+		'section.github.total': '{count} contribuciones en {year}',
+		'section.github.total.soFar': '{count} contribuciones hasta hoy',
+		'section.github.replay': 'Repetir animación',
+		'section.github.activeMonth': 'Mes actual',
+		'section.github.months': 'Ene,Feb,Mar,Abr,May,Jun,Jul,Ago,Sep,Oct,Nov,Dic',
+		'section.github.tooltip': '{count} contribuciones el {date}',
+		'section.github.tooltip.empty': 'Sin contribuciones el {date}',
 
 		'section.projects.title': 'Proyectos',
 		// one-anime
@@ -124,8 +130,14 @@ export const ui = {
 			'Alexander is a programmer with solid technical skills, impeccable performance, and excellent problem-solving abilities. In addition, Alexander is a person of integrity, with ethical and moral values, responsible and friendly. I definitely recommend him for any work team where he can be valued and respected.',
 
 		'section.github.title': 'GitHub Activity',
-		'section.github.subtitle': 'Contributions over the last year',
-		'section.github.total': '{count} contributions',
+		'section.github.subtitle': '{year} activity (accumulating month by month)',
+		'section.github.total': '{count} contributions in {year}',
+		'section.github.total.soFar': '{count} contributions up to today',
+		'section.github.replay': 'Replay animation',
+		'section.github.activeMonth': 'Current month',
+		'section.github.months': 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+		'section.github.tooltip': '{count} contributions on {date}',
+		'section.github.tooltip.empty': 'No contributions on {date}',
 
 		'section.projects.title': 'Projects',
 		// one-anime

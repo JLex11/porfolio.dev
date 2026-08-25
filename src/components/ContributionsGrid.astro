@@ -1,48 +1,107 @@
 ---
-import type { ContributionWeek } from '@/utils/fetchContributions'
+import type { ContributionWeek, MonthStat } from '@/utils/fetchContributions'
 
 interface Props {
   weeks: ContributionWeek[]
+  months: MonthStat[]
+  monthNames: string[]
+  currentMonth: number
+  year: number
   class?: string
 }
 
-const { weeks, class: className } = Astro.props
+const {
+  weeks,
+  months,
+  monthNames,
+  currentMonth,
+  year,
+  class: className,
+} = Astro.props
 
 const CELL = 12
 const GAP = 3
 const ROWS = 7
+const HEADER_HEIGHT = 18
 const cols = weeks.length || 53
 const width = cols * (CELL + GAP) - GAP
-const height = ROWS * (CELL + GAP) - GAP
+const height = HEADER_HEIGHT + ROWS * (CELL + GAP) - GAP
 ---
 
-<svg
-  class:list={['contrib-grid', className]}
-  viewBox={`0 0 ${width} ${height}`}
-  width={width}
-  height={height}
-  preserveAspectRatio='xMidYMid meet'
-  aria-hidden='true'
-  role='presentation'
->
-  {
-    weeks.map((week, wi) =>
-      Array.from({ length: ROWS }).map((_, di) => {
-        const day = week?.[di]
-        const level = day?.level ?? 0
-        return (
-          <rect
-            x={wi * (CELL + GAP)}
-            y={di * (CELL + GAP)}
-            width={CELL}
-            height={CELL}
-            rx={2.5}
-            ry={2.5}
-            class={`contrib-cell contrib-cell--l${level}`}
-            style={`--col: ${wi}; --row: ${di};`}
-          />
+<div class="contrib-grid-wrapper relative w-full overflow-x-auto pb-2 scrollbar-thin">
+  <svg
+    class:list={['contrib-grid select-none', className]}
+    viewBox={`0 0 ${width} ${height}`}
+    width={width}
+    height={height}
+    preserveAspectRatio='xMidYMid meet'
+    aria-hidden='true'
+    role='presentation'
+    data-year={year}
+    data-current-month={currentMonth}
+  >
+    {/* Month labels at top */}
+    <g class='contrib-month-labels' aria-hidden='true'>
+      {
+        months.map((m) => {
+          const x = m.firstCol * (CELL + GAP)
+          const name = monthNames[m.month] ?? ''
+          return (
+            <text
+              x={x}
+              y={12}
+              class={`contrib-month-header-label font-mono text-[10px] fill-slate-500 dark:fill-slate-400 font-medium transition-colors ${
+                m.month === currentMonth ? 'fill-blue-600 dark:fill-blue-300 font-semibold' : ''
+              }`}
+              data-month-header={m.month}
+            >
+              {name}
+            </text>
+          )
+        })
+      }
+    </g>
+
+    {/* Day cells grid */}
+    <g class='contrib-cells' role='grid' aria-readonly='true'>
+      {
+        weeks.map((week, wi) =>
+          Array.from({ length: ROWS }).map((_, di) => {
+            const day = week?.[di]
+            const level = day?.level ?? 0
+            const count = day?.count ?? 0
+            const month = day?.month ?? 0
+            const isFuture = day?.isFuture ?? true
+            const monthStat = months[month]
+            const firstCol = monthStat ? monthStat.firstCol : 0
+            const colInMonth = Math.max(0, wi - firstCol)
+
+            return (
+              <rect
+                x={wi * (CELL + GAP)}
+                y={HEADER_HEIGHT + di * (CELL + GAP)}
+                width={CELL}
+                height={CELL}
+                rx={2.5}
+                ry={2.5}
+                class:list={[
+                  'contrib-cell',
+                  `contrib-cell--l${level}`,
+                  isFuture && 'is-future',
+                ]}
+                style={`--col: ${wi}; --row: ${di}; --col-in-month: ${colInMonth};`}
+                data-col={wi}
+                data-row={di}
+                data-month={month}
+                data-count={count}
+                data-date={day?.date ?? ''}
+                data-level={level}
+                data-future={isFuture ? 'true' : 'false'}
+              />
+            )
+          })
         )
-      })
-    )
-  }
-</svg>
+      }
+    </g>
+  </svg>
+</div>
